@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Particle effects/Front.unity
+    guid: 5cdf8a23fb2c9994593ae29623220894
+  - enabled: 0
+    path: Assets/Scenes/Particle effects/Down to Up Diagonal.unity
+    guid: b4eac73673b419548a156ed71728d7f3
+  - enabled: 1
+    path: Assets/Scenes/Particle effects/Up to Down Diagonal.unity
+    guid: dccb31d8595410a4389244629778526e
