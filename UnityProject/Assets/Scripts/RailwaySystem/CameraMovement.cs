@@ -31,6 +31,7 @@ public class CameraMovement : MonoBehaviour
 
             //Reset Routine
             movement.isMoving = false;
+            
         }
     }
 
@@ -45,11 +46,24 @@ public class CameraMovement : MonoBehaviour
 
             float t = 0;
             //Move while time is still below 1
+
+
+
+            
             while (t < 1)
             {
                 t += Time.deltaTime / time;
-                toMove.gameObject.transform.eulerAngles = Vector3.Lerp(PointA, (PointB - PointA), t);
 
+                //Check A is positive or negative, change B to be positive or negative if A is negative/positive.
+               
+                Vector3 normalized = new Vector3(
+                    Mathf.LerpAngle(PointA.x, PointB.x, t),
+                    Mathf.LerpAngle(PointA.y, PointB.y, t),
+                    Mathf.LerpAngle(PointA.z, PointB.z, t));
+                
+                toMove.gameObject.transform.eulerAngles = normalized;
+
+                
 
                 yield return 0;
 

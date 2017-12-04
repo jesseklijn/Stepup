@@ -14,11 +14,18 @@ public class Movement : MonoBehaviour
     public bool leftShoe = false;
     public bool rightShoe = false;
 
+    //Tutorial
+    public GameObject LeftShoe;
+    public GameObject RightShoe;
+    public GameObject textStart;
+
     public CameraMovement cameraMovement;
 
     public RailwaySystem railwaySystem;
 
     public GameObject toMove;
+
+    public float Duration;
 
     public Vector3[] rotations;
 
@@ -37,9 +44,10 @@ public class Movement : MonoBehaviour
 
 
                         Move();
+
                     }
                 }
-                else if (rightShoe == false)
+                if (rightShoe == false)
                 {
                     if (Input.GetKeyDown(KeyCode.RightArrow) == true)
                     {
@@ -47,58 +55,71 @@ public class Movement : MonoBehaviour
                         rightShoe = true;
 
                         Move();
+                      
                     }
                 }
             }
+            DisplayShoe();
         }
+        else
+        {
+            DisableShoe();
+        }
+        
+
     }
 
-
+    public void DisplayShoe()
+    {
+        if (isMoving == false)
+        {
+            if (leftShoe == true)
+            {
+                //Disable icon
+                LeftShoe.SetActive(false);
+            }
+            else
+            {
+                //Enable icon
+                LeftShoe.SetActive(true);
+            }
+            if (rightShoe == true)
+            {
+                //Disable icon
+                RightShoe.SetActive(false);
+            }
+            else
+            {
+                //Enable Icon
+                RightShoe.SetActive(true);
+            }
+        }
+    }
+    public void DisableShoe()
+    {
+        LeftShoe.SetActive(false);
+        RightShoe.SetActive(false);
+        textStart.SetActive(false);
+    }
     public void Move()
     {
         int index = cameraMovement.IndexOfInt(railwaySystem.pointPositions, currentPoint.transform.position);
-        Debug.Log(index);
+
         if (index + 1 != railwaySystem.pointPositions.Length)
         {
 
 
-            StartCoroutine(cameraMovement.MoveTowardsClosestWayPoint(currentPoint.transform.position, railwaySystem.pointPositions[index + 1], 5, toMove));
-            toMove.transform.LookAt(railwaySystem.pointList[index + 1].transform);
+            StartCoroutine(cameraMovement.MoveTowardsClosestWayPoint(currentPoint.transform.position, railwaySystem.pointPositions[index + 1], Duration, toMove));
+            StartCoroutine(cameraMovement.RotateTowardsClosestWayPoint(currentPoint.transform.rotation.eulerAngles, railwaySystem.pointRotations[index + 1], 2, toMove));
             currentPoint = railwaySystem.pointList[index + 1];
 
             //rotating
-            
+
+            //toMove.transform.LookAt(railwaySystem.pointList[index + 1].transform);
+
             //int count = 0;
 
-            //for (int i = index; i < railwaySystem.pointRotations.Length; i++)
-            //{
-               
-            //    if (count == 3)
-            //    {
-            //        break;
-
-            //    }
-            //    count++;
-                
-            //}
-            //rotations = new Vector3[count];
-            //count = 0;
-
-            //for (int i = index; i < railwaySystem.pointRotations.Length; i++)
-            //{
-
-            //    if (count == 3)
-            //    {
-            //        break;
-
-            //    }
-
-            //    rotations[count] = railwaySystem.pointRotations[i];
-
-            //    count++;
-            //}
-
-            //StartCoroutine(cameraMovement.RotateTowardsClosestWayPoint(currentPoint.transform.position, railwaySystem.pointPositions[index + 1], 2, toMove));
+            
         }
     }
 }
