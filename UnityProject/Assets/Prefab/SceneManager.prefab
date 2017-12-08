@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4267996688113062}
   - component: {fileID: 114209864709466134}
+  - component: {fileID: 114163591210740636}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -70,6 +71,30 @@ Transform:
   m_Father: {fileID: 4267996688113062}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114163591210740636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1011750163991532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91045c7ca6df6474e9e737276596f707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 15084ff95112e4746866bf8f399f95ed, type: 3}
+  - {fileID: 8300000, guid: d84a33369c0e40847abcfef6fb4d7ee7, type: 3}
+  - {fileID: 8300000, guid: 975b53435c81ed5439c1c7d40a77d32d, type: 3}
+  - {fileID: 8300000, guid: e9bf4126cac6a1f42ab573b57b5909e1, type: 3}
+  source: {fileID: 0}
+  sceneManager: {fileID: 114209864709466134}
+  countdown:
+  - "\u30B9\u30BF\u30FC\u30C8\uFF01"
+  - 1
+  - 2
+  - 3
+  display: {fileID: 0}
 --- !u!114 &114209864709466134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,15 +121,17 @@ MonoBehaviour:
   current_Position: {x: 0, y: 0, z: 0}
   STEP: 1
   lineRenderer: {fileID: 120700895130968582}
-  inputIsGiven: 1
+  gameStarted: 0
   timePassed: 0
+  movementScript: {fileID: 0}
+  countDownPlayer: {fileID: 114163591210740636}
 --- !u!120 &120700895130968582
 LineRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1348877251441326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

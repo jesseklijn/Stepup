@@ -138,7 +138,7 @@ public class Movement : MonoBehaviour
     }
     public void Accelerate()
     {
-        StartCoroutine(cameraMovement.Accelerate(0, 2, 8));
+        StartCoroutine(cameraMovement.Accelerate(0, 1.5F, 1));
     }
     public void UpdateMovement()
     {
