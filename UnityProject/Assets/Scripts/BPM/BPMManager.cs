@@ -36,7 +36,7 @@ public class BPMManager : MonoBehaviour
         {
 
             isCounting = true;
-
+            BPMEARLYUPDATE();
             float t = 0;
             //Move while time is still below 1
             while (t < 1)
@@ -67,6 +67,12 @@ public class BPMManager : MonoBehaviour
                 StartCoroutine(BPM_UPDATE(_INTERVAL));
             }
         }
+
+    }
+
+    public virtual void BPMEARLYUPDATE()
+    {
+        //Starts before bpm update once per interval
 
     }
 

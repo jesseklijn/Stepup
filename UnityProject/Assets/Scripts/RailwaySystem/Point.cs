@@ -19,4 +19,16 @@ public class Point : MonoBehaviour {
         if(B != null)
         Gizmos.DrawLine(transform.position, B.transform.position);
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            Debug.Log("point touched");
+            other.gameObject.GetComponent<Movement>().currentPoint = this;
+            other.gameObject.GetComponent<Movement>().RotateTowardsTarget(B);
+            other.gameObject.GetComponent<Movement>().nextPoint = B;
+        }
+        
+    }
 }

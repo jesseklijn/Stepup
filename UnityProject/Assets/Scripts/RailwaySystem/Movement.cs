@@ -6,11 +6,23 @@ using System;
 public class Movement : MonoBehaviour
 {
 
-    public Point currentPoint;
+    public SceneManager sceneManager;
 
-    public bool isMoving = false;
+    public bool inputIsGiven = false;
+
+    public Point currentPoint;
+    public Point nextPoint;
+
+    //Movement
+    public bool Accelerating = false;
+    public float baseSpeed = 1;
+    public float accelSpeed = 0;
+    public float velocitySpeed = 0;
+    public List<Accelerate> acceleration = new List<Accelerate>();
+
     public bool isRotating = false;
 
+    //Displaying
     public bool leftShoe = false;
     public bool rightShoe = false;
 
@@ -25,75 +37,98 @@ public class Movement : MonoBehaviour
 
     public GameObject toMove;
 
-    public float Duration;
 
-    public Vector3[] rotations;
 
     private void Update()
     {
-        if (isMoving == false)
+
+
+        if (leftShoe == false || rightShoe == false)
         {
-            if (leftShoe == false || rightShoe == false)
+            if (leftShoe == false)
             {
-                if (leftShoe == false)
+                if (Input.GetKeyDown(KeyCode.LeftArrow) == true)
                 {
-                    if (Input.GetKeyDown(KeyCode.LeftArrow) == true)
+                    rightShoe = false;
+                    leftShoe = true;
+
+                    if (sceneManager.gameStarted == false)
                     {
-                        rightShoe = false;
-                        leftShoe = true;
 
-
-                        Move();
+                        sceneManager.StartCountDown();
+                       
+                        textStart.SetActive(false);
 
                     }
-                }
-                if (rightShoe == false)
-                {
-                    if (Input.GetKeyDown(KeyCode.RightArrow) == true)
+                    if (inputIsGiven == true)
                     {
-                        leftShoe = false;
-                        rightShoe = true;
-
-                        Move();
-                      
+                        Accelerate();
+                        inputIsGiven = false;
                     }
+
+
                 }
             }
-            DisplayShoe();
+            if (rightShoe == false)
+            {
+                if (Input.GetKeyDown(KeyCode.RightArrow) == true)
+                {
+                    leftShoe = false;
+                    rightShoe = true;
+
+                    if (sceneManager.gameStarted == false)
+                    {
+                        sceneManager.StartCountDown();
+                        
+                        textStart.SetActive(false);
+                    }
+                    if (inputIsGiven == true)
+                    {
+                        Accelerate();
+                        inputIsGiven = false;
+                    }
+
+                }
+            }
+
+
         }
         else
         {
             DisableShoe();
         }
-        
+        if (sceneManager.gameStarted == true)
+        {
+            UpdateMovement();
+        }
+
 
     }
 
     public void DisplayShoe()
     {
-        if (isMoving == false)
+
+        if (leftShoe == true)
         {
-            if (leftShoe == true)
-            {
-                //Disable icon
-                LeftShoe.SetActive(false);
-            }
-            else
-            {
-                //Enable icon
-                LeftShoe.SetActive(true);
-            }
-            if (rightShoe == true)
-            {
-                //Disable icon
-                RightShoe.SetActive(false);
-            }
-            else
-            {
-                //Enable Icon
-                RightShoe.SetActive(true);
-            }
+            //Disable icon
+            LeftShoe.SetActive(false);
         }
+        else
+        {
+            //Enable icon
+            LeftShoe.SetActive(true);
+        }
+        if (rightShoe == true)
+        {
+            //Disable icon
+            RightShoe.SetActive(false);
+        }
+        else
+        {
+            //Enable Icon
+            RightShoe.SetActive(true);
+        }
+
     }
     public void DisableShoe()
     {
@@ -101,25 +136,40 @@ public class Movement : MonoBehaviour
         RightShoe.SetActive(false);
         textStart.SetActive(false);
     }
-    public void Move()
+    public void Accelerate()
     {
-        int index = cameraMovement.IndexOfInt(railwaySystem.pointPositions, currentPoint.transform.position);
+        StartCoroutine(cameraMovement.Accelerate(0, 2, 8));
+    }
+    public void UpdateMovement()
+    {
 
-        if (index + 1 != railwaySystem.pointPositions.Length)
+
+        accelSpeed = CalculateTotalAcceleration();
+        velocitySpeed = baseSpeed + accelSpeed;
+
+        gameObject.transform.position = Vector3.MoveTowards(transform.position, nextPoint.transform.position, velocitySpeed * Time.deltaTime);
+        //Execute movement towards A - B target by speed + acceleration * delta
+
+        //Always smoothly look at target
+
+
+
+    }
+    public void RotateTowardsTarget(Point point)
+    {
+        StartCoroutine(cameraMovement.RotateTowardsClosestWayPoint(currentPoint.transform.rotation.eulerAngles, point.transform.rotation.eulerAngles, 2, toMove));
+    }
+    public float CalculateTotalAcceleration()
+    {
+
+        float numberToReturn = 0;
+
+        for (int i = 0; i < acceleration.Count; i++)
         {
-
-
-            StartCoroutine(cameraMovement.MoveTowardsClosestWayPoint(currentPoint.transform.position, railwaySystem.pointPositions[index + 1], Duration, toMove));
-            StartCoroutine(cameraMovement.RotateTowardsClosestWayPoint(currentPoint.transform.rotation.eulerAngles, railwaySystem.pointRotations[index + 1], 2, toMove));
-            currentPoint = railwaySystem.pointList[index + 1];
-
-            //rotating
-
-            //toMove.transform.LookAt(railwaySystem.pointList[index + 1].transform);
-
-            //int count = 0;
-
-            
+            numberToReturn += acceleration[i].acceleration;
         }
+
+
+        return numberToReturn;
     }
 }

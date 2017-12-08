@@ -2,21 +2,32 @@
 
 public class SceneManager : BPMManager {
 
-    public bool inputIsGiven = false;
-
+    
+    public bool gameStarted = false;
     public float timePassed;
 
+    public Movement movementScript;
+    public CountdownPlayer countDownPlayer;
 	// Use this for initialization
 	void Start () {
         Initialize();
-
-        StartUpdating();
+       
     }
 	
-	// Update is called once per frame
-	void Update () {
+	public void StartGame()
+    {
+        StartUpdating();
+        gameStarted = true;
+    }
+    public void StartCountDown()
+    {
+        StartCoroutine(countDownPlayer.CountDownFrom(3, countDownPlayer.audioClips, 1));
+    }
+    public override void BPMEARLYUPDATE()
+    {
+        base.BPMEARLYUPDATE();
+        movementScript.DisplayShoe();
 
-     
     }
 
     public override void BPMUPDATE()
@@ -29,15 +40,16 @@ public class SceneManager : BPMManager {
     {
         base.Interval();
 
-        if(inputIsGiven == true)
+        if(movementScript.inputIsGiven == true)
         {
-            //move forward
+            //move forward        
         }
         else
         {
             //lower bpm
             current_BPM -= _BPM_DROP;
-        }
 
+        }
+        movementScript.inputIsGiven = true;
     }
 }
