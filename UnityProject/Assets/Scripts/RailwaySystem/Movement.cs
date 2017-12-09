@@ -138,6 +138,8 @@ public class Movement : MonoBehaviour
     }
     public void Accelerate()
     {
+        Singleton.audioController.PlaySFX("Cart Clang", gameObject, false, true);
+        Singleton.audioController.PlaySFX("Woosh", gameObject, false, true);
         StartCoroutine(cameraMovement.Accelerate(0, 1.5F, 1));
     }
     public void UpdateMovement()
