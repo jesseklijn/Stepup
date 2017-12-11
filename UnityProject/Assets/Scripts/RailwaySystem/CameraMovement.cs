@@ -16,6 +16,7 @@ public class CameraMovement : MonoBehaviour
     public IEnumerator Accelerate(float xStart, float yTop, float time)
     {
         Accelerate AccelInstance = gameObject.AddComponent<Accelerate>();
+        Singleton.audioController.PlaySFX("Woosh", gameObject, false, true);
 
         movement.acceleration.Add(AccelInstance);
         int i = movement.acceleration.IndexOf(AccelInstance);
