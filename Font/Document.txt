@@ -1,0 +1,5 @@
+Unity_Document
+
+Japanese Character Å® tetsubinGothic
+Number             Å® fontoposlidregular
+simbol(like "Å~" "%") Å® siteseeing

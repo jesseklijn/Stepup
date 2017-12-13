@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: cd754e68bc6679345bf1e728c95ecbb1
+timeCreated: 1513164602
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: site seeing shop
+  fontNames:
+  - site seeing shop
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
