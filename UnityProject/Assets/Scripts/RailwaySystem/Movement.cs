@@ -18,6 +18,9 @@ public class Movement : MonoBehaviour
     public float baseSpeed = 1;
     public float accelSpeed = 0;
     public float velocitySpeed = 0;
+
+    public float amountToAccelerate = 3;
+    public float accelerateTimeFrame = 1;
     public List<Accelerate> acceleration = new List<Accelerate>();
 
     public bool isRotating = false;
@@ -140,7 +143,7 @@ public class Movement : MonoBehaviour
     {
         Singleton.audioController.PlaySFX("Cart Clang", gameObject, false, true);
         Singleton.audioController.PlaySFX("Woosh", gameObject, false, true);
-        StartCoroutine(cameraMovement.Accelerate(0, 1.5F, 1));
+        StartCoroutine(cameraMovement.Accelerate(0, amountToAccelerate, accelerateTimeFrame));
     }
     public void UpdateMovement()
     {
