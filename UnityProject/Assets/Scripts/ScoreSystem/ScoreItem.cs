@@ -6,12 +6,12 @@ public class ScoreItem : MonoBehaviour {
 
     public int score = 0;
     public int currentScore = 0;
+   
     public ScoreSystem scoreSystem;
 
     public void AddScore()
     {
-       //scoreSystem.scoreToIncrease[]
-
+        scoreSystem.scoreToIncrease.Add(this);
     }
     public virtual void Destroy()
     {
@@ -25,6 +25,8 @@ public class ScoreItem : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+      
         Destroy();
+       
     }
 }
