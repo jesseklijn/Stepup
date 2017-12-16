@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1465688997186766}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.3, z: -4.58}
+  m_LocalPosition: {x: -0.04, y: 0.3, z: 5.94}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4702842132274430}
@@ -72,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 1407727171229476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.097, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_LocalScale: {x: 0.7251202, y: 0.7251202, z: 0.7251202}
   m_Children: []
   m_Father: {fileID: 4563811050102520}
   m_RootOrder: 0
@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 1000
+  currentScore: 0
+  scoreSystem: {fileID: 0}
   onDeath: {fileID: 0}
   gem: {fileID: 82690140373227558}
   soundOnDeath: {fileID: 8300000, guid: 0ea2ed0dad1071c4488740ab8aa9fa90, type: 3}
@@ -315,7 +317,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -52193073
+  randomSeed: -1153472376
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -405,7 +407,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.578, b: 0.6740414, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
