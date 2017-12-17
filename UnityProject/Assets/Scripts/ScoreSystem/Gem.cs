@@ -5,9 +5,6 @@ using UnityEngine;
 public class Gem : ScoreItem {
 
     public GameObject onDeath;
-    public AudioSource gem;
-    public AudioClip soundOnDeath;
-	// Use this for initialization
 	void Start () {
 		
 	}
@@ -24,10 +21,8 @@ public class Gem : ScoreItem {
         //Display particle
         //onDeath.SetActive(true);
 
-        //Play sound
-
-        //TODO: Change this sound to SFX audiocontroller
-        gem.PlayOneShot(soundOnDeath);
+        Singleton.audioController.PlaySFX("Pickup Gem", gameObject, false, true);
+    
         
         base.Destroy();
 

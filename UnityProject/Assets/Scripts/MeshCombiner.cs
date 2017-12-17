@@ -19,7 +19,7 @@ public class MeshCombiner : MonoBehaviour {
 
 		MeshFilter[] filters = GetComponentsInChildren<MeshFilter>();
 
-		Debug.Log (name + " is combining " + filters.Length + "meshes!");
+		//Debug.Log (name + " is combining " + filters.Length + "meshes!");
 
 		Mesh finalMesh = new Mesh();
 
