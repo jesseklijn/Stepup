@@ -12,38 +12,43 @@ public class CountdownPlayer : MonoBehaviour
     public string[] countdown;
     public Text display;
 
+    public bool isCounting = false;
+
     public IEnumerator CountDownFrom(int startFrom, AudioClip[] Clips, float timePerClip)
     {
-        float t = 0;
-
-        int i = startFrom;
-        //Move while time is still below 1
-        while (t < 1)
+        if (isCounting == false)
         {
+            isCounting = true;
+            float t = 0;
+           
+            int i = startFrom;
+            //Move while time is still below 1
+            while (t < 1)
+            {
 
-            t += Time.deltaTime / timePerClip;
+                t += Time.deltaTime / timePerClip;
 
-            yield return 0;
+                yield return 0;
 
+            }
+            isCounting = false;
+            if (i != -1)
+            {
+                //playsound
+                source.PlayOneShot(Clips[i]);
+
+                //display text
+                display.text = countdown[i];
+                //repeat
+                i--;
+                StartCoroutine(CountDownFrom(i, audioClips, 1));
+            }
+            else
+            {
+                StartCoroutine(DisableText(display, 0.5F));
+                sceneManager.StartGame();
+            }
         }
-
-        if (i != -1)
-        {
-            //playsound
-            source.PlayOneShot(Clips[i]);
-
-            //display text
-            display.text = countdown[i];
-            //repeat
-            i--;
-            StartCoroutine(CountDownFrom(i, audioClips, 1));
-        }
-        else
-        {
-            StartCoroutine(DisableText(display, 0.5F));
-            sceneManager.StartGame();
-        }
-
     }
     public IEnumerator DisableText(Text text, float time)
     {

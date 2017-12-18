@@ -5,20 +5,72 @@ using UnityEngine;
 public class ScoreSystem : MonoBehaviour
 {
 
-    public int inGameScore = 2500;
+    public int inGameScore = 0;
+    public int gemCount = 0;
     public int[] increment;
     public List<ScoreItem> scoreToIncrease;
+    public ScoreDisplay display;
 
+
+
+    //Private field
+    int lowestIncrement;
+    int scoreIncrement = 0;
+    ScoreItem[] items;
     //Gem
 
     public void ScoreUpdate()
     {
-        for (int i = 0; i < scoreToIncrease.Count; i++)
+        if (scoreToIncrease.Count >= 1)
         {
+            scoreIncrement = 0;
+            for (int i = 0; i < scoreToIncrease.Count; i++)
+            {
+                if (scoreToIncrease[i].currentScore >= ScoreIncrement(scoreToIncrease[i].currentScore))
+                {
+                    scoreIncrement += lowestIncrement;
+                    scoreToIncrease[i].currentScore -= lowestIncrement;
 
+                }
+            }
+            inGameScore += scoreIncrement;
+
+
+            //Remove any empty scores
+            for (int i = 0; i < scoreToIncrease.Count; i++)
+            {
+                if (scoreToIncrease[i].currentScore == 0)
+                {
+                    scoreToIncrease.Remove(scoreToIncrease[i]);
+                }
+            }
+            display.DisplayScore(inGameScore);
         }
+
+     
     }
 
+    public int ScoreIncrement(int score)
+    {
+
+    
+
+        for (int i = 0; i < increment.Length; i++)
+        {
+            if (increment[i] <= score)
+            {
+                lowestIncrement = increment[i];
+            }
+            if (increment[i] >= score)
+            {
+                return lowestIncrement;
+            }
+        }
+        //error
+        Debug.LogWarning("Increment list is empty!! Add increments to ScoreSystem");
+        return 0;
+
+    }
 
 
 
@@ -32,6 +84,7 @@ public class ScoreSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        ScoreUpdate();
+      
     }
 }

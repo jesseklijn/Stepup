@@ -16,14 +16,16 @@ public class Gem : ScoreItem {
 
     public override void Destroy()
     {
-       
+
 
         //Display particle
         //onDeath.SetActive(true);
 
         Singleton.audioController.PlaySFX("Pickup Gem", gameObject, false, true);
     
-        
+        AddScore();
+        scoreSystem.gemCount++;
+        scoreSystem.display.DisplayGemCount(scoreSystem.gemCount);
         base.Destroy();
 
     }
