@@ -44,7 +44,11 @@ public class MeshCombiner : MonoBehaviour {
 
 		for (int a = 0; a < transform.childCount; a++)
 		{
-			transform.GetChild (a).gameObject.SetActive (false);
+			//Deactivate
+			//transform.GetChild (a).gameObject.SetActive (false);
+
+			//Delete
+			GameObject.Destroy(transform.GetChild (a).gameObject);
 		}
 	}
 }
