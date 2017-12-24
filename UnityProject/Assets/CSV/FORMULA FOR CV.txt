@@ -1,0 +1,10 @@
+1.In a random spot in Excel write this formula.
+
+=STDEV(Begin:End)/AVERAGE(Begin:End)
+
+2. Change the Begin and End Values to the values you want the CV of.
+Begin = A4
+End = A81
+
+=STDEV(A4:A81)/AVERAGE(A4:A81)
+= 0.5722202
