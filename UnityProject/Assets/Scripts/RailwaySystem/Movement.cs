@@ -5,8 +5,8 @@ using System;
 
 public class Movement : MonoBehaviour
 {
-
     public SceneManager sceneManager;
+    public StepAnalytics stepAnalytics;
 
     public bool inputIsGiven = false;
 
@@ -39,8 +39,7 @@ public class Movement : MonoBehaviour
     public RailwaySystem railwaySystem;
 
     public GameObject toMove;
-
-
+ 
 
     private void Update()
     {
@@ -54,6 +53,9 @@ public class Movement : MonoBehaviour
                 {
                     rightShoe = false;
                     leftShoe = true;
+
+                    stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Left");
+                    //Debug.Log(sceneManager.timePassed + " Left"); 
 
                     if (sceneManager.gameStarted == false)
                     {
@@ -78,6 +80,9 @@ public class Movement : MonoBehaviour
                 {
                     leftShoe = false;
                     rightShoe = true;
+
+                    stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Right");
+                    //Debug.Log(sceneManager.timePassed + " Right"); 
 
                     if (sceneManager.gameStarted == false)
                     {

@@ -9,9 +9,9 @@ public class SceneManager : BPMManager {
     public Movement movementScript;
     public CountdownPlayer countDownPlayer;
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         Initialize();
-       
     }
 	
 	public void StartGame()
@@ -42,7 +42,8 @@ public class SceneManager : BPMManager {
 
         if(movementScript.inputIsGiven == true)
         {
-            //move forward        
+            //move forward   
+                
         }
         else
         {
@@ -50,6 +51,7 @@ public class SceneManager : BPMManager {
             current_BPM -= _BPM_DROP;
 
         }
+
         movementScript.inputIsGiven = true;
     }
 }
