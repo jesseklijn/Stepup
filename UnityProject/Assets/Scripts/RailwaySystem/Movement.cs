@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
     public RailwaySystem railwaySystem;
 
     public GameObject toMove;
- 
+
 
     private void Update()
     {
@@ -51,9 +51,10 @@ public class Movement : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow) == true)
                 {
-                    rightShoe = false;
-                    leftShoe = true;
-
+                  
+                        rightShoe = false;
+                        leftShoe = true;
+                   
                     stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Left");
                     //Debug.Log(sceneManager.timePassed + " Left"); 
 
@@ -61,7 +62,7 @@ public class Movement : MonoBehaviour
                     {
 
                         sceneManager.StartCountDown();
-                       
+
                         textStart.SetActive(false);
 
                     }
@@ -78,23 +79,21 @@ public class Movement : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.RightArrow) == true)
                 {
-                    leftShoe = false;
-                    rightShoe = true;
-
+                    
+                        leftShoe = false;
+                        rightShoe = true;
+                    
                     stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Right");
                     //Debug.Log(sceneManager.timePassed + " Right"); 
 
                     if (sceneManager.gameStarted == false)
                     {
                         sceneManager.StartCountDown();
-                        
+
                         textStart.SetActive(false);
                     }
-                    if (inputIsGiven == true)
-                    {
-                        Accelerate();
-                        inputIsGiven = false;
-                    }
+
+                    Accelerate();
 
                 }
             }
@@ -103,7 +102,10 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            DisableShoe();
+            if (sceneManager.tutorial == true)
+            {
+                DisableShoe();
+            }
         }
         if (sceneManager.gameStarted == true)
         {

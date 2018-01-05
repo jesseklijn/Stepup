@@ -4,6 +4,13 @@ public class SceneManager : BPMManager {
 
     
     public bool gameStarted = false;
+
+    //Tutorial settings
+    public bool tutorial = false;
+    //If tutorial is false, then shotTutorial does not affect game
+    public bool shortTutorial = true;
+
+
     public float timePassed;
 
     public Movement movementScript;
@@ -39,7 +46,10 @@ public class SceneManager : BPMManager {
     public override void Interval()
     {
         base.Interval();
-
+        if (tutorial == true && shortTutorial == true)
+        {
+            TutorialCheck();
+        }
         if(movementScript.inputIsGiven == true)
         {
             //move forward   
@@ -54,4 +64,18 @@ public class SceneManager : BPMManager {
 
         movementScript.inputIsGiven = true;
     }
+
+    public void TutorialCheck()
+    {
+        if(current_Interval_Count == 10)
+        {
+            movementScript.DisableShoe();
+            tutorial = false;
+        }
+        else
+        {
+           
+        }
+    }
+
 }
