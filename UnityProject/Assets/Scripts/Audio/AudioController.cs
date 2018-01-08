@@ -2,29 +2,26 @@ using UnityEngine;
 using System.Collections;
 using System.Reflection;
 using System.Collections.Generic;
+using UnityEngine.Playables;
 
 public class AudioController : MonoBehaviour
 {
     public AudioSource[] allSfx, allBgm;
     public float bgmVolume, sfxVolume;
     List<GameObject> allAudio = new List<GameObject>();
+    PlayableDirector timeline;
 
     void Start()
     {
         GetVolumes();
+        timeline = gameObject.GetComponent<PlayableDirector>(); 
     }
-
 
     public void GetVolumes()
     {
         bgmVolume = 1; // TEMP
         sfxVolume = 1; // TEMP
     }
-
-    // public void ChangeSFXVolume(float volume)
-    // {
-    //     sfxVolume = volume;
-    // }
 
     public void PlaySFX(string song, GameObject source, bool followObject = false, bool pitched = false)
     {
@@ -89,36 +86,9 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    public void PlayBGM(string song, bool stopOldBgm = true)
+    public void PlayBGM()
     {
-        AudioSource toPlay = null;
-        for (int i = 0; i < allBgm.Length; i++)
-        {
-            if (song == allBgm[i].name)
-            {
-                toPlay = allBgm[i];
-                break;
-            }
-        }
-
-        AudioSource[] allSources = GetComponentsInChildren<AudioSource>();
-
-        if (stopOldBgm)
-        {
-            
-            for (int i = 0; i < allSources.Length; i++)
-            {
-                if (allSources[i].name == song)
-                    return;
-                Stop(allSources[i].name);
-            }
-        }
-        GameObject soundObject = (GameObject)Instantiate(toPlay.gameObject, gameObject.transform, false);
-        soundObject.name = toPlay.name;
-        allAudio.Add(soundObject);
-        AudioSource sound = soundObject.GetComponent<AudioSource>();
-        sound.Play();
-        sound.volume = Remap(sound.volume, 0, 1, 0, bgmVolume);
+        timeline.Play();
     }
 
     public static float Remap(float value, float oldMin, float oldMax, float newMin, float newMax)

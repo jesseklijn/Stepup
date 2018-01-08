@@ -47,6 +47,7 @@ public class CountdownPlayer : MonoBehaviour
             {
                 StartCoroutine(DisableText(display, 0.5F));
                 sceneManager.StartGame();
+                Singleton.audioController.PlayBGM();
             }
         }
     }
