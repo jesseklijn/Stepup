@@ -21,8 +21,26 @@ GameObject:
   - component: {fileID: 4267996688113062}
   - component: {fileID: 114209864709466134}
   - component: {fileID: 114163591210740636}
+  - component: {fileID: 114505315831031146}
   m_Layer: 0
   m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1060892106470128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4009899246816866}
+  - component: {fileID: 114791068739944912}
+  - component: {fileID: 114868342315251492}
+  m_Layer: 0
+  m_Name: ScoreSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +62,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4009899246816866
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060892106470128}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4267996688113062}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4267996688113062
 Transform:
   m_ObjectHideFlags: 1
@@ -55,6 +86,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4576754240589582}
+  - {fileID: 4009899246816866}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -95,6 +127,7 @@ MonoBehaviour:
   - 2
   - 3
   display: {fileID: 0}
+  isCounting: 0
 --- !u!114 &114209864709466134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCounting: 0
-  _INTENDED_BPM: 100
+  _INTENDED_BPM: 110
   _FULL_GAME_CYCLE: 60
   MIN_MAX_MULTIPLIER: 0.5
   MIN_BPM: 0
@@ -116,15 +149,59 @@ MonoBehaviour:
   SECOND: 1
   _BPM_DROP: 0
   current_Interval_Count: 0
-  current_BPM: 100
+  current_BPM: 110
   GRAPHICALMULTIPLIER: 0.1
   current_Position: {x: 0, y: 0, z: 0}
   STEP: 1
   lineRenderer: {fileID: 120700895130968582}
   gameStarted: 0
+  tutorial: 0
+  timeForTutorialToTurnOff: 10
   timePassed: 0
   movementScript: {fileID: 0}
   countDownPlayer: {fileID: 114163591210740636}
+--- !u!114 &114505315831031146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1011750163991532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ce3446b76267c46a4683eca485bd62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114791068739944912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060892106470128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44bb2e67f428ac64d8ffccc001976cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreDisplay: {fileID: 0}
+  gemScore: {fileID: 0}
+  movementScript: {fileID: 0}
+  sceneManager: {fileID: 114209864709466134}
+--- !u!114 &114868342315251492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060892106470128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e6c49f636d48d48ab98ad39e89798e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameScore: 0
+  gemCount: 0
+  increment: 0100000002000000050000000a00000090000000d1000000
+  scoreToIncrease: []
+  display: {fileID: 114791068739944912}
 --- !u!120 &120700895130968582
 LineRenderer:
   m_ObjectHideFlags: 1

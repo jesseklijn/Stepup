@@ -1,30 +1,31 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
-public class SceneManager : BPMManager {
+public class SceneManager : BPMManager
+{
 
-    
+
     public bool gameStarted = false;
 
     //Tutorial settings
     public bool tutorial = false;
-    //If tutorial is false, then shotTutorial does not affect game
-    public bool shortTutorial = true;
-
+    public int timeForTutorialToTurnOff = 3;
 
     public float timePassed;
 
     public Movement movementScript;
     public CountdownPlayer countDownPlayer;
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         Initialize();
     }
-	
-	public void StartGame()
+
+    public void StartGame()
     {
         StartUpdating();
         gameStarted = true;
+        StartCoroutine(Timer(0, timeForTutorialToTurnOff));
     }
     public void StartCountDown()
     {
@@ -46,14 +47,11 @@ public class SceneManager : BPMManager {
     public override void Interval()
     {
         base.Interval();
-        if (tutorial == true && shortTutorial == true)
-        {
-            TutorialCheck();
-        }
-        if(movementScript.inputIsGiven == true)
+       
+        if (movementScript.inputIsGiven == true)
         {
             //move forward   
-                
+
         }
         else
         {
@@ -65,17 +63,25 @@ public class SceneManager : BPMManager {
         movementScript.inputIsGiven = true;
     }
 
-    public void TutorialCheck()
+    public IEnumerator Timer(int time, int limit)
     {
-        if(current_Interval_Count == 10)
+
+        time += 1;
+        yield return new WaitForSeconds(1);
+
+        if (time != limit)
         {
-            movementScript.DisableShoe();
-            tutorial = false;
+            Debug.Log(time);
+            StartCoroutine(Timer(time, limit));
         }
         else
         {
-           
+            Debug.Log("Should turn off Tutorial!");
+            movementScript.DisableShoe();
+            tutorial = false;
         }
     }
+
+  
 
 }

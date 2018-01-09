@@ -18,20 +18,6 @@ public class RailwaySystem : MonoBehaviour
         DrawLines(pointList);
     }
 
-    //private void FixedUpdate()
-    //{
-    //    DrawLines(pointList);
-    //}
-
-    public void ConnectPoint(List<Point> points)
-    {
-
-        for (int i = 0; i < points.Count; i++)
-        {
-
-        }
-    }
-
     public void DrawLines(List<Point> points)
     {
         pointPositions = new Vector3[points.Count];

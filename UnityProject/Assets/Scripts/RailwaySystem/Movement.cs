@@ -51,10 +51,10 @@ public class Movement : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow) == true)
                 {
-                  
-                        rightShoe = false;
-                        leftShoe = true;
-                   
+
+                    rightShoe = false;
+                    leftShoe = true;
+
                     stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Left");
                     //Debug.Log(sceneManager.timePassed + " Left"); 
 
@@ -79,10 +79,10 @@ public class Movement : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.RightArrow) == true)
                 {
-                    
-                        leftShoe = false;
-                        rightShoe = true;
-                    
+
+                    leftShoe = false;
+                    rightShoe = true;
+
                     stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Right");
                     //Debug.Log(sceneManager.timePassed + " Right"); 
 
@@ -117,28 +117,33 @@ public class Movement : MonoBehaviour
 
     public void DisplayShoe()
     {
-
-        if (leftShoe == true)
+        if (sceneManager.tutorial == true)
         {
-            //Disable icon
-            LeftShoe.SetActive(false);
+            if (leftShoe == true)
+            {
+                //Disable icon
+                LeftShoe.SetActive(false);
+            }
+            else
+            {
+                //Enable icon
+                LeftShoe.SetActive(true);
+            }
+            if (rightShoe == true)
+            {
+                //Disable icon
+                RightShoe.SetActive(false);
+            }
+            else
+            {
+                //Enable Icon
+                RightShoe.SetActive(true);
+            }
         }
         else
         {
-            //Enable icon
-            LeftShoe.SetActive(true);
+            DisableShoe();
         }
-        if (rightShoe == true)
-        {
-            //Disable icon
-            RightShoe.SetActive(false);
-        }
-        else
-        {
-            //Enable Icon
-            RightShoe.SetActive(true);
-        }
-
     }
     public void DisableShoe()
     {

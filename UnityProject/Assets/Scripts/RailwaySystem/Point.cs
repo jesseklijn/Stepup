@@ -5,11 +5,14 @@ using UnityEngine;
 public class Point : MonoBehaviour {
 
     public Point B;
-
+    public float distanceToB;
     private void Awake()
     {
         if (B != null)
+        {
             transform.LookAt(B.transform);
+            distanceToB = Vector3.Distance(this.transform.position, B.transform.position);
+        }
     }
 
     private void OnDrawGizmos()

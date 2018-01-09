@@ -7,6 +7,10 @@ public class ScoreDisplay : MonoBehaviour {
 
     public Text scoreDisplay;
     public Text gemScore;
+
+    public Movement movementScript;
+    public SceneManager sceneManager;
+
     public void Start()
     {
         DisplayScore(0);

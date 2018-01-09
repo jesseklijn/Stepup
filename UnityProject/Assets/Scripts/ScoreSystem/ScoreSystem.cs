@@ -47,13 +47,13 @@ public class ScoreSystem : MonoBehaviour
             display.DisplayScore(inGameScore);
         }
 
-     
+
     }
 
     public int ScoreIncrement(int score)
     {
 
-    
+
 
         for (int i = 0; i < increment.Length; i++)
         {
@@ -85,6 +85,19 @@ public class ScoreSystem : MonoBehaviour
     void Update()
     {
         ScoreUpdate();
-      
+
+    }
+
+    public void ProgressSetup()
+    {
+        ///Divide the slider equally by the sum of distance
+    }
+
+    public void ProgressSliderUpdate()
+    {
+        ///Check position on list
+        //Get index
+        //Compare index with list
+        //
     }
 }
