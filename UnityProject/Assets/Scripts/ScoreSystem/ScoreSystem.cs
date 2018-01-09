@@ -11,7 +11,9 @@ public class ScoreSystem : MonoBehaviour
     public List<ScoreItem> scoreToIncrease;
     public ScoreDisplay display;
 
-
+    public SceneManager sceneManager;
+    public RailwaySystem railWaySystem;
+    public Movement movement;
 
     //Private field
     int lowestIncrement;
@@ -78,7 +80,7 @@ public class ScoreSystem : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        ProgressSetup();
     }
 
     // Update is called once per frame
@@ -90,14 +92,39 @@ public class ScoreSystem : MonoBehaviour
 
     public void ProgressSetup()
     {
-        ///Divide the slider equally by the sum of distance
+        sceneManager.distanceFromStartToFinish = CalculateTotalDistance(railWaySystem.pointList); 
     }
 
-    public void ProgressSliderUpdate()
+    public float CalculateTotalDistance(List<Point> points)
     {
-        ///Check position on list
-        //Get index
-        //Compare index with list
-        //
+        float distance = 0;
+
+        for (int i = 0; i < points.Count; i++)
+        {
+           distance += points[i].distanceToB;
+        }
+        return distance;
+    }
+    
+    public float CalculateCurrentDistance()
+    {
+        float distance = Vector3.Distance(movement.currentPoint.transform.position, movement.currentPoint.B.transform.position);
+
+        //get all until now
+        List<Point> points = new List<Point>();
+        for (int i = 0; i < railWaySystem.pointList.Count; i++)
+        {
+            if(movement.currentPoint == railWaySystem.pointList[i]) { }
+        }
+
+
+        return distance;
+    }
+
+
+
+    public float CalculateTotalCurrentDistance()
+    {
+        return 0;
     }
 }

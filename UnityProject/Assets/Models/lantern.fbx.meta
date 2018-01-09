@@ -16,7 +16,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rantan_material
-    second: {fileID: 2100000, guid: f2edeb87c988b03409facfd51174b291, type: 2}
+    second: {fileID: 2100000, guid: 2447fdcb44b36254e9e0372ba953dc34, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -46,7 +46,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.05
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

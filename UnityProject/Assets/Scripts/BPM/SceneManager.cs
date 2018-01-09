@@ -10,6 +10,9 @@ public class SceneManager : BPMManager
     //Tutorial settings
     public bool tutorial = false;
     public int timeForTutorialToTurnOff = 3;
+    public bool timerRunning = false;
+
+    public float distanceFromStartToFinish = 0;
 
     public float timePassed;
 
@@ -47,7 +50,7 @@ public class SceneManager : BPMManager
     public override void Interval()
     {
         base.Interval();
-       
+
         if (movementScript.inputIsGiven == true)
         {
             //move forward   
@@ -65,23 +68,33 @@ public class SceneManager : BPMManager
 
     public IEnumerator Timer(int time, int limit)
     {
-
-        time += 1;
-        yield return new WaitForSeconds(1);
-
-        if (time != limit)
+        if (timerRunning == false)
         {
-            Debug.Log(time);
-            StartCoroutine(Timer(time, limit));
-        }
-        else
-        {
-            Debug.Log("Should turn off Tutorial!");
-            movementScript.DisableShoe();
-            tutorial = false;
+            timerRunning = true;
+            float t = 0;
+            //Move while time is still below 1
+            while (t < 1)
+            {
+                t += Time.deltaTime / 1;
+                yield return 0;
+            }
+            time += 1;
+            if (time != limit)
+            {
+                Debug.Log(time);
+                timerRunning = false;
+                StartCoroutine(Timer(time, limit));
+            }
+            else
+            {
+                Debug.Log("Should turn off Tutorial!");
+                timerRunning = false;
+                movementScript.DisableShoe();
+                tutorial = false;
+            }
         }
     }
 
-  
+
 
 }

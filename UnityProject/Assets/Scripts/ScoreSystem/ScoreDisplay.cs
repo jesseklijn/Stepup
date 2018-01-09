@@ -14,6 +14,9 @@ public class ScoreDisplay : MonoBehaviour {
     public void Start()
     {
         DisplayScore(0);
+
+
+
     }
 
     public void DisplayScore(int score)
