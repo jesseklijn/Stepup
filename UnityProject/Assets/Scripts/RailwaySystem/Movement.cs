@@ -102,13 +102,7 @@ public class Movement : MonoBehaviour
             }
             
         }
-        else
-        {
-            if (sceneManager.tutorial == true)
-            {
-                DisableShoe();
-            }
-        }
+       
         if (sceneManager.gameStarted == true)
         {
             UpdateMovement();
