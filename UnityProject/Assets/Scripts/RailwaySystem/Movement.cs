@@ -52,8 +52,12 @@ public class Movement : MonoBehaviour
             rightShoe = false;
             leftShoe = true;
 
-            stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Left");
-            //Debug.Log(sceneManager.timePassed + " Left"); 
+            if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
+            {
+                stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Left");
+                Accelerate();
+                //Debug.Log(sceneManager.timePassed + " Left"); 
+            }    
 
             if (sceneManager.gameStarted == false)
             {
@@ -61,13 +65,15 @@ public class Movement : MonoBehaviour
                 sceneManager.StartCountDown();
 
                 textStart.SetActive(false);
-
             }
+            
+
             if (inputIsGiven == true)
             {
-                Accelerate();
+                
                 inputIsGiven = false;
             }
+            
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) == true)
         {
@@ -75,8 +81,12 @@ public class Movement : MonoBehaviour
             leftShoe = false;
             rightShoe = true;
 
-            stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Right");
-            //Debug.Log(sceneManager.timePassed + " Right"); 
+            if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
+            {
+                stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Right");
+                Accelerate();
+                //Debug.Log(sceneManager.timePassed + " Right"); 
+            }
 
             if (sceneManager.gameStarted == false)
             {
@@ -85,8 +95,12 @@ public class Movement : MonoBehaviour
                 textStart.SetActive(false);
             }
 
-            Accelerate();
-
+            if (inputIsGiven == true)
+            {
+                
+                inputIsGiven = false;
+            }
+            
         }
         else
         {
@@ -141,7 +155,12 @@ public class Movement : MonoBehaviour
     }
     public void Accelerate()
     {
+        if (sceneManager.gameStarted == true)
+        {
         Singleton.audioController.PlaySFX("Cart Clang", gameObject, false, true);
+        Singleton.audioController.PlaySFX("Woosh", gameObject, false, true);
+        }
+
         StartCoroutine(cameraMovement.Accelerate(0, amountToAccelerate, accelerateTimeFrame));
     }
     public void UpdateMovement()

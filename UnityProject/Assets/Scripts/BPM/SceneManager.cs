@@ -6,6 +6,7 @@ public class SceneManager : BPMManager
 
 
     public bool gameStarted = false;
+    public bool gameFinished = false;
 
     //Tutorial settings
     public bool tutorial = false;

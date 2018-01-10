@@ -18,7 +18,7 @@ public class StepAnalytics : MonoBehaviour {
 
 	void OnApplicationQuit()
     {
-		Save();
+		//Save();
         Debug.Log("Application ending after " + Time.time + " seconds");
     }
 	
@@ -28,7 +28,7 @@ public class StepAnalytics : MonoBehaviour {
 		feet.Add(foot);
 	}
 
-	 void Save(){
+	 public void Save(){
 
         // Creating First row of titles manually..
         string[] rowDataTemp = new string[2];
