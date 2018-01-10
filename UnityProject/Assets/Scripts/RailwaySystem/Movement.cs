@@ -45,59 +45,47 @@ public class Movement : MonoBehaviour
     {
 
 
-        if (leftShoe == false || rightShoe == false)
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) == true)
         {
-            if (leftShoe == false)
+
+            rightShoe = false;
+            leftShoe = true;
+
+            stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Left");
+            //Debug.Log(sceneManager.timePassed + " Left"); 
+
+            if (sceneManager.gameStarted == false)
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow) == true)
-                {
 
-                    rightShoe = false;
-                    leftShoe = true;
+                sceneManager.StartCountDown();
 
-                    stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Left");
-                    //Debug.Log(sceneManager.timePassed + " Left"); 
+                textStart.SetActive(false);
 
-                    if (sceneManager.gameStarted == false)
-                    {
-
-                        sceneManager.StartCountDown();
-
-                        textStart.SetActive(false);
-
-                    }
-                    if (inputIsGiven == true)
-                    {
-                        Accelerate();
-                        inputIsGiven = false;
-                    }
-
-
-                }
             }
-            if (rightShoe == false)
+            if (inputIsGiven == true)
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow) == true)
-                {
+                Accelerate();
+                inputIsGiven = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) == true)
+        {
 
-                    leftShoe = false;
-                    rightShoe = true;
+            leftShoe = false;
+            rightShoe = true;
 
-                    stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Right");
-                    //Debug.Log(sceneManager.timePassed + " Right"); 
+            stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Right");
+            //Debug.Log(sceneManager.timePassed + " Right"); 
 
-                    if (sceneManager.gameStarted == false)
-                    {
-                        sceneManager.StartCountDown();
+            if (sceneManager.gameStarted == false)
+            {
+                sceneManager.StartCountDown();
 
-                        textStart.SetActive(false);
-                    }
-
-                    Accelerate();
-
-                }
+                textStart.SetActive(false);
             }
 
+            Accelerate();
 
         }
         else
