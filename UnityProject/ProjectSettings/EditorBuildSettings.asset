@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Particle effects/Up to Down Diagonal.unity
     guid: dccb31d8595410a4389244629778526e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level1_Prototype.unity
     guid: 6e59c5d7f48c54a43b7f02b5ccf97e25
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1_Prototype4.unity
+    guid: 8e48cd466f2006e43888bf1c3f184da1

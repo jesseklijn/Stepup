@@ -8,15 +8,24 @@ public class ScoreDisplay : MonoBehaviour {
     public Text scoreDisplay;
     public Text gemScore;
 
+    public Slider progressBar;
+
     public Movement movementScript;
     public SceneManager sceneManager;
+
+
 
     public void Start()
     {
         DisplayScore(0);
 
+       
 
+    }
 
+    public void Update()
+    {
+        progressBar.value = sceneManager.CurrentProgressDistanceTraveled;
     }
 
     public void DisplayScore(int score)

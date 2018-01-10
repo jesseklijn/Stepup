@@ -13,6 +13,7 @@ public class SceneManager : BPMManager
     public bool timerRunning = false;
 
     public float distanceFromStartToFinish = 0;
+    public float CurrentProgressDistanceTraveled;
 
     public float timePassed;
 
@@ -81,7 +82,7 @@ public class SceneManager : BPMManager
             time += 1;
             if (time != limit)
             {
-                Debug.Log(time);
+                
                 timerRunning = false;
                 StartCoroutine(Timer(time, limit));
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreSystem : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ScoreSystem : MonoBehaviour
     public RailwaySystem railWaySystem;
     public Movement movement;
 
+    public Slider progressBar;
     //Private field
     int lowestIncrement;
     int scoreIncrement = 0;
@@ -87,12 +89,13 @@ public class ScoreSystem : MonoBehaviour
     void Update()
     {
         ScoreUpdate();
-
+        sceneManager.CurrentProgressDistanceTraveled = CalculateCurrentDistance();
+        progressBar.maxValue = sceneManager.distanceFromStartToFinish;
     }
 
     public void ProgressSetup()
     {
-        sceneManager.distanceFromStartToFinish = CalculateTotalDistance(railWaySystem.pointList); 
+        sceneManager.distanceFromStartToFinish = CalculateTotalDistance(railWaySystem.pointList);
     }
 
     public float CalculateTotalDistance(List<Point> points)
@@ -101,30 +104,46 @@ public class ScoreSystem : MonoBehaviour
 
         for (int i = 0; i < points.Count; i++)
         {
-           distance += points[i].distanceToB;
+            distance += points[i].distanceToB;
         }
         return distance;
     }
-    
+
     public float CalculateCurrentDistance()
     {
-        float distance = Vector3.Distance(movement.currentPoint.transform.position, movement.currentPoint.B.transform.position);
+        //Get current point distance
+        float distance = Vector3.Distance(movement.transform.position, movement.currentPoint.B.transform.position);
+        bool currentPointHit = false;
 
-        //get all until now
-        List<Point> points = new List<Point>();
+        Debug.Log("currentPoint Distance: "+distance);
+
+        //Get local distances
         for (int i = 0; i < railWaySystem.pointList.Count; i++)
         {
-            if(movement.currentPoint == railWaySystem.pointList[i]) { }
+            if (currentPointHit == true)
+            {
+              distance += railWaySystem.pointList[i].distanceToB;
+            }
+            if (movement.currentPoint == railWaySystem.pointList[i])
+            {
+                currentPointHit = true;
+            }
         }
+        Debug.Log("local Distances pre : " + distance);
+        //Calculate total distance
 
+        distance = sceneManager.distanceFromStartToFinish - distance; 
 
+        //DISTANCE = 100 
+
+        //Current distance = 99
+
+        
+
+        // 100 - 99 = 1 
+
+        Debug.Log("local Distances post: " + distance);
+        //Return the value
         return distance;
-    }
-
-
-
-    public float CalculateTotalCurrentDistance()
-    {
-        return 0;
     }
 }
