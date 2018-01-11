@@ -11,7 +11,7 @@ public class ScoreDisplay : MonoBehaviour {
     public Slider progressBar;
 
     public Movement movementScript;
-    public SceneManager sceneManager;
+    public StepUpSceneManager sceneManager;
 
 
 

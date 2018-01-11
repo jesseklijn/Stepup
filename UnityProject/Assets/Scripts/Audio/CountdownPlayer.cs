@@ -8,7 +8,7 @@ public class CountdownPlayer : MonoBehaviour
 
     public AudioClip[] audioClips;
     public AudioSource source;
-    public SceneManager sceneManager;
+    public StepUpSceneManager sceneManager;
     public string[] countdown;
     public Text display;
 

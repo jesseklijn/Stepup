@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FinishScript : MonoBehaviour {
 
-	public SceneManager sceneManager;
+	public StepUpSceneManager sceneManager;
 	public StepAnalytics stepAnalytics;
 
 	void OnTriggerEnter(Collider other)

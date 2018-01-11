@@ -12,7 +12,7 @@ public class ScoreSystem : MonoBehaviour
     public List<ScoreItem> scoreToIncrease;
     public ScoreDisplay display;
 
-    public SceneManager sceneManager;
+    public StepUpSceneManager sceneManager;
     public RailwaySystem railWaySystem;
     public Movement movement;
 
