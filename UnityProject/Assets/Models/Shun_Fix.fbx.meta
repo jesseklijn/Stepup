@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: 89ed5d28012f6ce4c96ae3df764eb554
+timeCreated: 1515903551
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: BlendShape
+    100002: Body
+    100004: C_ClothA1
+    100006: C_ClothA2
+    100008: Chest
+    100010: Face
+    100012: Hair
+    100014: Head
+    100016: Hip
+    100018: L_Arm
+    100020: L_ClothB1
+    100022: L_ClothB2
+    100024: L_ClothC1
+    100026: L_ClothC2
+    100028: L_ClothD1
+    100030: L_ClothD2
+    100032: L_Eye
+    100034: L_EyeController1
+    100036: L_EyeController2
+    100038: L_FirstFinger1
+    100040: L_FirstFinger2
+    100042: L_FirstFinger3
+    100044: L_Foot
+    100046: L_FootTip
+    100048: L_ForeArm
+    100050: L_FourFinger1
+    100052: L_FourFinger2
+    100054: L_FourFinger3
+    100056: L_Hand
+    100058: L_Leg
+    100060: L_LegUp
+    100062: L_SecondFinger1
+    100064: L_SecondFinger2
+    100066: L_SecondFinger3
+    100068: L_Shoulder
+    100070: L_ThirdFinger1
+    100072: L_ThirdFinger2
+    100074: L_ThirdFinger3
+    100076: L_Thumb1
+    100078: L_Thumb2
+    100080: L_Thumb3
+    100082: Neck
+    100084: R_Arm
+    100086: R_ClothB1
+    100088: R_ClothB2
+    100090: R_ClothC1
+    100092: R_ClothC2
+    100094: R_ClothD1
+    100096: R_ClothD2
+    100098: R_Eye
+    100100: R_EyeController1
+    100102: R_EyeController2
+    100104: R_FirstFinger1
+    100106: R_FirstFinger2
+    100108: R_FirstFinger3
+    100110: R_Foot
+    100112: R_FootTip
+    100114: R_ForeArm
+    100116: R_FourFinger1
+    100118: R_FourFinger2
+    100120: R_FourFinger3
+    100122: R_Hand
+    100124: R_Leg
+    100126: R_LegUp
+    100128: R_SecondFinger1
+    100130: R_SecondFinger2
+    100132: R_SecondFinger3
+    100134: R_Shoulder
+    100136: R_ThirdFinger1
+    100138: R_ThirdFinger2
+    100140: R_ThirdFinger3
+    100142: R_Thumb1
+    100144: R_Thumb2
+    100146: R_Thumb3
+    100148: Scarf_A1
+    100150: Scarf_A2
+    100152: Scarf_A3
+    100154: //RootNode
+    100156: Shun_Group
+    100158: Waist
+    400000: BlendShape
+    400002: Body
+    400004: C_ClothA1
+    400006: C_ClothA2
+    400008: Chest
+    400010: Face
+    400012: Hair
+    400014: Head
+    400016: Hip
+    400018: L_Arm
+    400020: L_ClothB1
+    400022: L_ClothB2
+    400024: L_ClothC1
+    400026: L_ClothC2
+    400028: L_ClothD1
+    400030: L_ClothD2
+    400032: L_Eye
+    400034: L_EyeController1
+    400036: L_EyeController2
+    400038: L_FirstFinger1
+    400040: L_FirstFinger2
+    400042: L_FirstFinger3
+    400044: L_Foot
+    400046: L_FootTip
+    400048: L_ForeArm
+    400050: L_FourFinger1
+    400052: L_FourFinger2
+    400054: L_FourFinger3
+    400056: L_Hand
+    400058: L_Leg
+    400060: L_LegUp
+    400062: L_SecondFinger1
+    400064: L_SecondFinger2
+    400066: L_SecondFinger3
+    400068: L_Shoulder
+    400070: L_ThirdFinger1
+    400072: L_ThirdFinger2
+    400074: L_ThirdFinger3
+    400076: L_Thumb1
+    400078: L_Thumb2
+    400080: L_Thumb3
+    400082: Neck
+    400084: R_Arm
+    400086: R_ClothB1
+    400088: R_ClothB2
+    400090: R_ClothC1
+    400092: R_ClothC2
+    400094: R_ClothD1
+    400096: R_ClothD2
+    400098: R_Eye
+    400100: R_EyeController1
+    400102: R_EyeController2
+    400104: R_FirstFinger1
+    400106: R_FirstFinger2
+    400108: R_FirstFinger3
+    400110: R_Foot
+    400112: R_FootTip
+    400114: R_ForeArm
+    400116: R_FourFinger1
+    400118: R_FourFinger2
+    400120: R_FourFinger3
+    400122: R_Hand
+    400124: R_Leg
+    400126: R_LegUp
+    400128: R_SecondFinger1
+    400130: R_SecondFinger2
+    400132: R_SecondFinger3
+    400134: R_Shoulder
+    400136: R_ThirdFinger1
+    400138: R_ThirdFinger2
+    400140: R_ThirdFinger3
+    400142: R_Thumb1
+    400144: R_Thumb2
+    400146: R_Thumb3
+    400148: Scarf_A1
+    400150: Scarf_A2
+    400152: Scarf_A3
+    400154: //RootNode
+    400156: Shun_Group
+    400158: Waist
+    4300000: Hair
+    4300002: Face
+    4300004: Body
+    4300006: L_Eye
+    4300008: R_Eye
+    9500000: //RootNode
+    13700000: Body
+    13700002: Face
+    13700004: Hair
+    13700006: L_Eye
+    13700008: R_Eye
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_material
+    second: {fileID: 2100000, guid: 8d6a98ae79e6e1848bd1467a9a576970, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cloth_material
+    second: {fileID: 2100000, guid: 12fcc2f1923805a4aa2af814636b993b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Goggle_moterial
+    second: {fileID: 2100000, guid: 8b2ef5f298c75f547a8c13fabbdd6030, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
