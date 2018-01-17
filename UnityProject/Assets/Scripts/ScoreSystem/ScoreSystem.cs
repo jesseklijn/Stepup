@@ -16,6 +16,10 @@ public class ScoreSystem : MonoBehaviour
     public RailwaySystem railWaySystem;
     public Movement movement;
 
+    //Particle Systems
+    public ParticleSystem[] particleSystems;
+
+
     public Slider progressBar;
     //Private field
     int lowestIncrement;
@@ -37,6 +41,7 @@ public class ScoreSystem : MonoBehaviour
 
                 }
             }
+            particleSystems[0].Play();
             inGameScore += scoreIncrement;
 
 

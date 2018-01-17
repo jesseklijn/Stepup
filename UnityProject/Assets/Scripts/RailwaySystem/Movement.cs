@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     public Point currentPoint;
     public Point nextPoint;
 
+    public ParticleSystem[] particleSystems;
+
     //Movement
     public bool Accelerating = false;
     public float baseSpeed = 1;
@@ -56,7 +58,8 @@ public class Movement : MonoBehaviour
             {
                 stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Left");
                 Accelerate();
-                //Debug.Log(sceneManager.timePassed + " Left"); 
+                particleSystems[0].Play();
+                particleSystems[2].Play();
             }    
 
             if (sceneManager.gameStarted == false)
@@ -85,7 +88,8 @@ public class Movement : MonoBehaviour
             {
                 stepAnalytics.AddTimeStamp(sceneManager.timePassed, "Right");
                 Accelerate();
-                //Debug.Log(sceneManager.timePassed + " Right"); 
+                particleSystems[1].Play();
+                particleSystems[3].Play();
             }
 
             if (sceneManager.gameStarted == false)
