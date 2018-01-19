@@ -1,32 +1,142 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using UnityEngine;
 
-public class StepAnalytics2 : MonoBehaviour {
-
+public class StepAnalytics2 : MonoBehaviour 
+{
 	private const float CompareIsZeroTolerance = 0.000000000001f;
+	private double _cv, _lcv, _rcv;
+	private List<double> TimeStamps = new List<double>();
+	private List<double>LeftTimeStamps = new List<double>();
+	private List<double>RightTimeStamps = new List<double>();
+	//private List<string> feet = new List<string>();
+	private List<string[]> rowData = new List<string[]>();
+
+	public double bpm;
+
+	void OnApplicationQuit()
+    {
+		//Save();
+        Debug.Log("Application ending after " + Time.time + " seconds");
+    }
+
+	public void AddTimeStamp (float time, string foot) 
+	{
+		if(foot == "Left")
+		{
+			LeftTimeStamps.Add(time);
+			TimeStamps.Add(time);
+		}
+
+		else if(foot == "Right")
+		{
+			RightTimeStamps.Add(time);
+			TimeStamps.Add(time);
+		}
+		
+		//feet.Add(foot);
+	}
+
+	public void Save(){
+
+		Debug.Log(TimeStamps);
+
+        // Creating First row of titles manually..
+        string[] rowDataTemp = new string[3];
+        rowDataTemp[0] = "cv";
+        rowDataTemp[1] = "lcv";
+		rowDataTemp[2] = "rcv";
+        rowData.Add(rowDataTemp);
+
+		//ConvertToCV(TimeStamps);
+		_lcv = ConvertToCV(LeftTimeStamps);
+		Debug.Log(_lcv);
+		_rcv = ConvertToCV(RightTimeStamps);
+		Debug.Log(_rcv);
+		_cv = ConvertToCV(LeftTimeStamps);
+		//_cv = (_lcv + _rcv)/2;
+		Debug.Log(_cv);
+
+        // You can add up the values in as many cells as you want.
+        // for(int i = 0; i < TimeStamps.Count; i++)
+		// {
+        //     rowDataTemp = new string[3];
+        //     rowDataTemp[0] = TimeStamps[i].ToString(); // the time
+        //     rowData.Add(rowDataTemp);
+        // }
+
+		rowDataTemp = new string[3];
+        rowDataTemp[0] = _cv.ToString();
+		rowDataTemp[1] = ""+_lcv;
+		rowDataTemp[2] = _rcv.ToString();
+		rowData.Add(rowDataTemp);
+
+        string[][] output = new string[rowData.Count][];
+
+        for(int i = 0; i < output.Length; i++)
+		{
+            output[i] = rowData[i];
+        }
+
+        int length = output.GetLength(0);
+        string delimiter = ",";
+
+        StringBuilder sb = new StringBuilder();
+        
+        for (int index = 0; index < length; index++)
+            sb.AppendLine(string.Join(delimiter, output[index]));
+        
+        
+        string filePath = getPath();
+
+        StreamWriter outStream = System.IO.File.AppendText(filePath);
+        outStream.WriteLine(sb);
+        outStream.Close();
+    }
  
-	private void ConvertToCV(List<double> data)
+	public double ConvertToCV(List<double> data)
 	{
 		double mean = data.Mean();
 		double sd = data.StandardDeviation(); 
 
 		double cv = CoefficientOfVariance(sd, mean);
 
-		Debug.Log("CV: {0}, (mean: {1}, sd: {2})" + cv + mean + sd);
-		Debug.Log("Test");
+		//Change from seconds to beats
+		cv = cv * (bpm/60);
+
+		//Debug.Log("CV:" + cv +"mean: " + mean + "sd: " + sd);
+
+		return cv;
 	}
 		
-	private static double CoefficientOfVariance(double sd, double mean)
+	public static double CoefficientOfVariance(double sd, double mean)
 	{
 		if (Math.Abs(mean - 0) < CompareIsZeroTolerance) return 0;
 		return sd / mean;
 	}
+
+    // Following method is used to retrive the relative path as device platform
+    private string getPath()
+	{
+        #if UNITY_EDITOR
+        return Application.dataPath +"/CSV/"+"Saved_data.csv";
+        #elif UNITY_ANDROID
+        return Application.persistentDataPath+"Saved_data.csv";
+        #elif UNITY_IPHONE
+        return Application.persistentDataPath+"/"+"Saved_data.csv";
+        #else
+        return Application.dataPath +"/"+"Saved_data.csv";
+        #endif
+    }
+	
 }
 
 public static class MyListExtensions
 {
+
 	public static double Mean(this List<double> values)
 	{
 		return values.Count == 0 ? 0 : values.Mean(0, values.Count);
