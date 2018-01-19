@@ -27,14 +27,44 @@ public class StepAnalytics2 : MonoBehaviour
 	{
 		if(foot == "Left")
 		{
-			LeftTimeStamps.Add(time);
-			TimeStamps.Add(time);
+			if(!(LeftTimeStamps.Count == 0))
+			{
+				LeftTimeStamps.Add(time-(LeftTimeStamps[LeftTimeStamps.Count-1]));
+			}
+			else
+			{
+				LeftTimeStamps.Add(time);
+			}
+
+			if(!(TimeStamps.Count == 0))
+			{
+				TimeStamps.Add(time-(TimeStamps[TimeStamps.Count-1]));
+			}
+			else
+			{
+				TimeStamps.Add(time);
+			}
 		}
 
 		else if(foot == "Right")
 		{
-			RightTimeStamps.Add(time);
-			TimeStamps.Add(time);
+			if(!(RightTimeStamps.Count == 0))
+			{
+				RightTimeStamps.Add(time-(RightTimeStamps[RightTimeStamps.Count-1]));
+			}
+			else
+			{
+				RightTimeStamps.Add(time);
+			}
+			if(!(TimeStamps.Count == 0))
+			{
+				TimeStamps.Add(time-(TimeStamps[TimeStamps.Count-1]));
+			}
+			else
+			{
+				TimeStamps.Add(time);
+			}
+			
 		}
 		
 		//feet.Add(foot);
