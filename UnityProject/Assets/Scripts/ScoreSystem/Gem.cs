@@ -5,8 +5,14 @@ using UnityEngine;
 public class Gem : ScoreItem {
 
     public GameObject onDeath;
-	void Start () {
-		
+
+    //2D Gem fields
+    private GameObject eventGameObject;
+    public GameObject gemSpritePrefab;
+    public GameObject ParticleSystemPrefabs;
+
+    void Start () {
+        eventGameObject = GameObject.FindGameObjectWithTag("EventsObjects");
 	}
 	
 	// Update is called once per frame
@@ -20,10 +26,13 @@ public class Gem : ScoreItem {
 
         //Display particle
         //onDeath.SetActive(true);
-
+        GameObject local = Instantiate(ParticleSystemPrefabs, new Vector3(transform.position.x,transform.position.y+0.5F,transform.position.z), Quaternion.identity, eventGameObject.transform);
+        Destroy(local, 3);
         Singleton.audioController.PlaySFX("Pickup Gem", gameObject, false, true);
     
         AddScore();
+
+        Instantiate(gemSpritePrefab, eventGameObject.transform);
         scoreSystem.gemCount++;
         scoreSystem.display.DisplayGemCount(scoreSystem.gemCount);
         base.Destroy();

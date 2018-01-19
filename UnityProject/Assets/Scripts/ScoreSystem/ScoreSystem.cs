@@ -19,6 +19,7 @@ public class ScoreSystem : MonoBehaviour
     //Particle Systems
     public ParticleSystem[] particleSystems;
 
+   
 
     public Slider progressBar;
     //Private field

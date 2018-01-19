@@ -19,14 +19,16 @@ public class GemSprite : MonoBehaviour
 
     public RectTransform gemToMove;
 
+    public ParticleSystem[] particleSystems;
+
 
     private void Awake()
     {
-        StartCoroutine(FadeIn(fadeTime, startAlpha, endAlpha));
-
+        StartCoroutine(Fade(fadeTime, startAlpha, endAlpha, false, true));
+        StartCoroutine(MoveTowardsDestination(movementTime, startPosition, endPosition));
     }
 
-    public IEnumerator FadeIn(float time, float startValue, float endValue)
+    public IEnumerator Fade(float time, float startValue, float endValue, bool delete, bool move)
     {
 
 
@@ -40,15 +42,21 @@ public class GemSprite : MonoBehaviour
             t += Time.deltaTime / time;
             yield return 0;
 
-           
+
             myImage.color = new Color(myImage.color.r, myImage.color.g, myImage.color.b, Mathf.Lerp(startValue, endValue, t));
             //scale
 
         }
 
         //After fading in, start moving to destination
-        StartCoroutine(MoveTowardsDestination(movementTime, startPosition, endPosition));
-
+        if (move == true)
+        {
+           
+        }
+        if (delete == true)
+        {
+            Destroy(gameObject,1);
+        }
     }
     public IEnumerator MoveTowardsDestination(float time, Vector2 startValue, Vector2 endValue)
     {
@@ -65,12 +73,17 @@ public class GemSprite : MonoBehaviour
             yield return 0;
 
             gemToMove.anchoredPosition = Vector2.Lerp(startValue, endValue, t);
-           
+
             //scale
 
         }
 
-        //After fading in, start moving to destination
+        //Start fading out, play particle effect!
+
+        StartCoroutine(Fade(fadeTime, endAlpha, startAlpha, true, false));
+        particleSystems[0].Play();
+        particleSystems[1].Play();
+        particleSystems[2].Play();
 
 
     }
