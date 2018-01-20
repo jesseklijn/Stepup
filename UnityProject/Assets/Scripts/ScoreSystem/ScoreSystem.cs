@@ -121,7 +121,7 @@ public class ScoreSystem : MonoBehaviour
         float distance = Vector3.Distance(movement.transform.position, movement.currentPoint.B.transform.position);
         bool currentPointHit = false;
 
-        Debug.Log("currentPoint Distance: "+distance);
+
 
         //Get local distances
         for (int i = 0; i < railWaySystem.pointList.Count; i++)
@@ -135,7 +135,7 @@ public class ScoreSystem : MonoBehaviour
                 currentPointHit = true;
             }
         }
-        Debug.Log("local Distances pre : " + distance);
+       
         //Calculate total distance
 
         distance = sceneManager.distanceFromStartToFinish - distance; 
@@ -148,7 +148,7 @@ public class ScoreSystem : MonoBehaviour
 
         // 100 - 99 = 1 
 
-        Debug.Log("local Distances post: " + distance);
+
         //Return the value
         return distance;
     }

@@ -16,6 +16,7 @@ public class GemSprite : MonoBehaviour
     public Vector2 startPosition = new Vector2(0, 0);
     public Vector2 endPosition = new Vector2(-365, 200);
 
+    
 
     public RectTransform gemToMove;
 

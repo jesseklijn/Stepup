@@ -11,6 +11,8 @@ public class Gem : ScoreItem {
     public GameObject gemSpritePrefab;
     public GameObject ParticleSystemPrefabs;
 
+    public GameObject scoreTextPrefab;
+    public GameObject scoreTextPrefabEventParent;
     void Start () {
         eventGameObject = GameObject.FindGameObjectWithTag("EventsObjects");
 	}
@@ -28,6 +30,10 @@ public class Gem : ScoreItem {
         //onDeath.SetActive(true);
         GameObject local = Instantiate(ParticleSystemPrefabs, new Vector3(transform.position.x,transform.position.y+0.5F,transform.position.z), Quaternion.identity, eventGameObject.transform);
         Destroy(local, 3);
+
+        local = Instantiate(scoreTextPrefab, scoreTextPrefabEventParent.transform);
+        local.GetComponent<ScoreTextEvent>().textToDisplay = currentScore.ToString();
+
         Singleton.audioController.PlaySFX("Pickup Gem", gameObject, false, true);
     
         AddScore();

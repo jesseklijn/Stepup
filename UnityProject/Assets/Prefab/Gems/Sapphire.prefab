@@ -244,8 +244,11 @@ MonoBehaviour:
   onDeath: {fileID: 0}
   gemSpritePrefab: {fileID: 1272211320771138, guid: ea3d43387c4e09e4c82b248443aab8a3,
     type: 2}
-  ParticleSystemPrefabs: {fileID: 1158563398190656, guid: 6578e82aef2cda84795bf0ce532ff6a2,
+  ParticleSystemPrefabs: {fileID: 1810195022212634, guid: 98baa354d44bc5043b63d95fda0b7375,
     type: 2}
+  scoreTextPrefab: {fileID: 1720349902932314, guid: aee0034c2fbbbe641b04de337b2edd45,
+    type: 2}
+  scoreTextPrefabEventParent: {fileID: 0}
 --- !u!114 &114646340730328412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -715,7 +718,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 5
+    maxNumParticles: 10
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -879,7 +882,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 5
       minScalar: 10
       maxCurve:
         serializedVersion: 2

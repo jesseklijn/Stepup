@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class FinishCollider : MonoBehaviour {
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+
     }
 }

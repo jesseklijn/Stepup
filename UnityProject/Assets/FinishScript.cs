@@ -7,7 +7,9 @@ public class FinishScript : MonoBehaviour {
 	public StepUpSceneManager sceneManager;
 	public StepAnalytics stepAnalytics;
 
-	void OnTriggerEnter(Collider other)
+    public ParticleSystem[] particles;
+
+    void OnTriggerEnter(Collider other)
 	{
 		if(other.tag == "Player")
 		{
@@ -15,7 +17,12 @@ public class FinishScript : MonoBehaviour {
 			Singleton.audioController.PlaySFX("Yay", gameObject, false, false);
 			sceneManager.gameFinished = true;
 			stepAnalytics.Save();
-		}
-	}
+
+
+            particles[0].Play();
+            particles[1].Play();
+
+        }
+    }
 	
 }
