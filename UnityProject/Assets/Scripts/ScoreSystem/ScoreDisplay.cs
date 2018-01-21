@@ -14,7 +14,7 @@ public class ScoreDisplay : MonoBehaviour
     public Movement movementScript;
     public StepUpSceneManager sceneManager;
 
-    public bool timerRunning = false;
+
 
     public void Start()
     {
@@ -53,41 +53,5 @@ public class ScoreDisplay : MonoBehaviour
     public void DisplayGemCount(int score)
     {
         gemScore.text = score.ToString();
-    }
-
-
-
-
-    public void ScoreAnimation(GameObject textObject)
-    {
-
-
-
-    }
-    public IEnumerator Animate(int time, float startValue, float endValue)
-    {
-
-        if (timerRunning == false)
-        {
-
-            timerRunning = true;
-            float t = 0;
-
-            //Move while time is still below 1
-
-            while (t < 1)
-            {
-
-                t += Time.deltaTime / time;
-                yield return 0;
-
-                //scale
-
-                
-            }
-
-
-        }
-
     }
 }

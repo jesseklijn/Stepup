@@ -9,7 +9,7 @@ public class AudioController : MonoBehaviour
     public AudioSource[] allSfx, allBgm;
     public float bgmVolume, sfxVolume;
     List<GameObject> allAudio = new List<GameObject>();
-    PlayableDirector timeline;
+    public PlayableDirector timeline;
 
     void Start()
     {

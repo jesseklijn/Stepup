@@ -7,7 +7,7 @@ public class ScoreSystem : MonoBehaviour
 {
 
     public int inGameScore = 0;
-    public int gemCount = 0;
+    
     public int[] increment;
     public List<ScoreItem> scoreToIncrease;
     public ScoreDisplay display;
@@ -15,6 +15,13 @@ public class ScoreSystem : MonoBehaviour
     public StepUpSceneManager sceneManager;
     public RailwaySystem railWaySystem;
     public Movement movement;
+
+    //Gem fields
+    public int gemCount = 0;
+    public int sapphireCount = 0, rubyCount = 0, diamondCount = 0;
+
+
+
 
     //Particle Systems
     public ParticleSystem[] particleSystems;

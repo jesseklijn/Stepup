@@ -46,6 +46,7 @@ public class StepUpSceneManager : BPMManager
 
     public override void BPMUPDATE()
     {
+
         base.BPMUPDATE();
         timePassed += Time.deltaTime * 1;
 
@@ -71,6 +72,7 @@ public class StepUpSceneManager : BPMManager
         movementScript.inputIsGiven = true;
     }
 
+    //Turns off tutorial at certain time
     public IEnumerator Timer(int time, int limit)
     {
         if (timerRunning == false)
