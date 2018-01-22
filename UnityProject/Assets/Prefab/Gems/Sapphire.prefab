@@ -242,6 +242,7 @@ MonoBehaviour:
   currentScore: 10000
   scoreSystem: {fileID: 0}
   onDeath: {fileID: 0}
+  gemType: 0
   gemSpritePrefab: {fileID: 1272211320771138, guid: ea3d43387c4e09e4c82b248443aab8a3,
     type: 2}
   ParticleSystemPrefabs: {fileID: 1810195022212634, guid: 98baa354d44bc5043b63d95fda0b7375,

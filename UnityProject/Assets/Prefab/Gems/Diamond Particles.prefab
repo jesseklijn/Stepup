@@ -189,10 +189,10 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 479660910
+  randomSeed: 994783021
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3503,10 +3503,10 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -344153301
+  randomSeed: -1056142790
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6767,10 +6767,10 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -555360966
+  randomSeed: 1902406240
   InitialModule:
     serializedVersion: 3
     enabled: 1
