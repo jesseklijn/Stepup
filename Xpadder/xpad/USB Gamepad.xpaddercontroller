@@ -1,0 +1,27 @@
+;--- Xpadder Controller File ---
+DataType=Controller
+Version=2014.01.01
+
+[Button Locations]
+Button1Location=16,96
+Button2Location=46,96
+Button3Location=230,132
+Button4Location=106,96
+Button6Location=166,96
+Button8Location=268,132
+Button9Location=200,66
+Button10Location=306,69
+
+[Access]
+
+[Names]
+Button1Name=Button 1
+Button2Name=Button 2
+Button3Name=Left
+Button4Name=Button 4
+Button6Name=Button 6
+Button8Name=Right
+Button9Name=Pause
+Button10Name=Start
+
+[Image]
