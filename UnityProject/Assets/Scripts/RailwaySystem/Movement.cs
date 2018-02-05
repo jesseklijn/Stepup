@@ -6,7 +6,7 @@ using System;
 public class Movement : MonoBehaviour
 {
     public StepUpSceneManager sceneManager;
-    public StepAnalytics stepAnalytics;
+    public StepAnalytics2 stepAnalytics;
 
     public bool inputIsGiven = false;
 
