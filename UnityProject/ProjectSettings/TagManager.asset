@@ -7,6 +7,8 @@ TagManager:
   - 'Player '
   - EventsObjects
   - AudioController
+  - Canvas
+  - ScoreSystem
   layers:
   - Default
   - TransparentFX

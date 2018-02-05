@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 1465688997186766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.1931114, y: -2.5983763, z: -1.23}
-  m_LocalScale: {x: 4.7651687, y: 4.765168, z: 4.765168}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4702842132274430}
   m_Father: {fileID: 0}
@@ -238,8 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86cbb3af338f9d408589a4538060179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 15000
-  currentScore: 15000
+  score: 5000
+  currentScore: 5000
   scoreSystem: {fileID: 0}
   onDeath: {fileID: 0}
   gemType: 1
