@@ -8,7 +8,8 @@ using UnityEngine;
 public class StepAnalytics2 : MonoBehaviour 
 {
 	private const float CompareIsZeroTolerance = 0.000000000001f;
-	private double _cv, _lcv, _rcv;
+	private double _cv = 1;
+	private double _lcv, _rcv;
 	private List<double> TimeStamps = new List<double>();
 	private List<double>LeftTimeStamps = new List<double>();
 	private List<double>RightTimeStamps = new List<double>();
@@ -70,6 +71,15 @@ public class StepAnalytics2 : MonoBehaviour
 		//feet.Add(foot);
 	}
 
+	public Double GetCV()
+	{
+		_lcv = ConvertToCV(LeftTimeStamps);
+		_rcv = ConvertToCV(RightTimeStamps);
+		_cv = (_lcv + _rcv)/2;
+
+		return _cv;
+	}
+
 	public void Save(){
 
 		Debug.Log(TimeStamps);
@@ -86,17 +96,9 @@ public class StepAnalytics2 : MonoBehaviour
 		Debug.Log(_lcv);
 		_rcv = ConvertToCV(RightTimeStamps);
 		Debug.Log(_rcv);
-		_cv = ConvertToCV(LeftTimeStamps);
-		//_cv = (_lcv + _rcv)/2;
+		_cv = (_lcv + _rcv)/2;
 		Debug.Log(_cv);
 
-        // You can add up the values in as many cells as you want.
-        // for(int i = 0; i < TimeStamps.Count; i++)
-		// {
-        //     rowDataTemp = new string[3];
-        //     rowDataTemp[0] = TimeStamps[i].ToString(); // the time
-        //     rowData.Add(rowDataTemp);
-        // }
 
 		rowDataTemp = new string[3];
         rowDataTemp[0] = _cv.ToString();

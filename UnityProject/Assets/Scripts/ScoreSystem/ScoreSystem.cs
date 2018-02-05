@@ -64,7 +64,6 @@ public class ScoreSystem : MonoBehaviour
             display.DisplayScore(inGameScore);
         }
 
-
     }
 
     public int ScoreIncrement(int score)
@@ -83,6 +82,7 @@ public class ScoreSystem : MonoBehaviour
                 return lowestIncrement;
             }
         }
+
         //error
         Debug.LogWarning("Increment list is empty!! Add increments to ScoreSystem");
         return 0;
