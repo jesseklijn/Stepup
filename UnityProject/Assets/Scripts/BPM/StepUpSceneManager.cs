@@ -21,10 +21,24 @@ public class StepUpSceneManager : BPMManager
 
     public Movement movementScript;
     public CountdownPlayer countDownPlayer;
+    public GemsManager gemsManager;
+
     // Use this for initialization
     void Start()
     {
         Initialize();
+    }
+
+    public void RefreshGems()
+    {
+        if(timePassed >= 3)
+        {
+            {      
+                double m_cv = gameObject.GetComponent<StepAnalytics2>().GetCV();
+                gemsManager.AddGemToList(m_cv);
+                gemsManager.SpawnGem();               
+            }
+        }
     }
 
     public void StartGame()
@@ -60,7 +74,6 @@ public class StepUpSceneManager : BPMManager
         if (movementScript.inputIsGiven == true)
         {
             //move forward   
-
         }
         else
         {
@@ -68,7 +81,7 @@ public class StepUpSceneManager : BPMManager
             current_BPM -= _BPM_DROP;
 
         }
-
+            RefreshGems();
         movementScript.inputIsGiven = true;
     }
 

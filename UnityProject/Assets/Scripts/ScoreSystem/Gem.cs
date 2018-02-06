@@ -27,6 +27,8 @@ public class Gem : ScoreItem
     void Start()
     {
         eventGameObject = GameObject.FindGameObjectWithTag("EventsObjects");
+        scoreTextPrefabEventParent = GameObject.FindGameObjectWithTag("Canvas");
+        scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
     }
 
     // Update is called once per frame
