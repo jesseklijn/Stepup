@@ -7,7 +7,7 @@ public class ScoreSystem : MonoBehaviour
 {
 
     public int inGameScore = 0;
-    
+
     public int[] increment;
     public List<ScoreItem> scoreToIncrease;
     public ScoreDisplay display;
@@ -26,7 +26,7 @@ public class ScoreSystem : MonoBehaviour
     //Particle Systems
     public ParticleSystem[] particleSystems;
 
-   
+
 
     public Slider progressBar;
     //Private field
@@ -125,38 +125,42 @@ public class ScoreSystem : MonoBehaviour
     public float CalculateCurrentDistance()
     {
         //Get current point distance
-        float distance = Vector3.Distance(movement.transform.position, movement.currentPoint.B.transform.position);
-        bool currentPointHit = false;
-
-
-
-        //Get local distances
-        for (int i = 0; i < railWaySystem.pointList.Count; i++)
+        if (movement.currentPoint.B != null)
         {
-            if (currentPointHit == true)
+            float distance = Vector3.Distance(movement.transform.position, movement.currentPoint.B.transform.position);
+            bool currentPointHit = false;
+
+
+
+            //Get local distances
+            for (int i = 0; i < railWaySystem.pointList.Count; i++)
             {
-              distance += railWaySystem.pointList[i].distanceToB;
+                if (currentPointHit == true)
+                {
+                    distance += railWaySystem.pointList[i].distanceToB;
+                }
+                if (movement.currentPoint == railWaySystem.pointList[i])
+                {
+                    currentPointHit = true;
+                }
             }
-            if (movement.currentPoint == railWaySystem.pointList[i])
-            {
-                currentPointHit = true;
-            }
+
+            //Calculate total distance
+
+            distance = sceneManager.distanceFromStartToFinish - distance;
+
+            //DISTANCE = 100 
+
+            //Current distance = 99
+
+
+
+            // 100 - 99 = 1 
+
+
+            //Return the value
+            return distance;
         }
-       
-        //Calculate total distance
-
-        distance = sceneManager.distanceFromStartToFinish - distance; 
-
-        //DISTANCE = 100 
-
-        //Current distance = 99
-
-        
-
-        // 100 - 99 = 1 
-
-
-        //Return the value
-        return distance;
+        return 0;
     }
 }
