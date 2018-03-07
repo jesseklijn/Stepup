@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: 789ea8cea10dabe488cc3a386621651d
+timeCreated: 1520402781
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: C_Tail1
+    100002: C_Tail2
+    100004: C_Tail3
+    100006: C_Tail4
+    100008: C_Tail5
+    100010: C_Tail6
+    100012: Chest
+    100014: Chin
+    100016: Dragon_Body
+    100018: //RootNode
+    100020: Head
+    100022: Hip
+    100024: L_Arm
+    100026: L_EyeController1
+    100028: L_EyeController2
+    100030: L_FirstFinger1
+    100032: L_FirstFinger2
+    100034: L_Foot
+    100036: L_FootTipA1
+    100038: L_FootTipA2
+    100040: L_FootTipB1
+    100042: L_FootTipB2
+    100044: L_FootTipC1
+    100046: L_FootTipC2
+    100048: L_ForeArm
+    100050: L_Hand
+    100052: L_Heel
+    100054: L_Leg
+    100056: L_LegUp
+    100058: L_SecondFinger1
+    100060: L_SecondFinger2
+    100062: L_Shoulder
+    100064: L_ThirdFinger1
+    100066: L_ThirdFinger2
+    100068: L_WingA1
+    100070: L_WingA2
+    100072: L_WingA3
+    100074: L_WingB1
+    100076: L_WingB2
+    100078: L_WingB3
+    100080: L_WingBase
+    100082: L_WingBase1
+    100084: L_WingBase2
+    100086: L_WingC1
+    100088: L_WingC2
+    100090: L_WingC3
+    100092: Neck1
+    100094: Neck2
+    100096: R_Arm
+    100098: R_EyeController1
+    100100: R_EyeController2
+    100102: R_FirstFinger1
+    100104: R_FirstFinger2
+    100106: R_Foot
+    100108: R_FootTipA1
+    100110: R_FootTipA2
+    100112: R_FootTipB1
+    100114: R_FootTipB2
+    100116: R_FootTipC1
+    100118: R_FootTipC2
+    100120: R_ForeArm
+    100122: R_Hand
+    100124: R_Heel
+    100126: R_Leg
+    100128: R_LegUp
+    100130: R_SecondFinger1
+    100132: R_SecondFinger2
+    100134: R_Shoulder
+    100136: R_ThirdFinger1
+    100138: R_ThirdFinger2
+    100140: R_WingA1
+    100142: R_WingA2
+    100144: R_WingA3
+    100146: R_WingB1
+    100148: R_WingB2
+    100150: R_WingB3
+    100152: R_WingBase
+    100154: R_WingBase1
+    100156: R_WingBase2
+    100158: R_WingC1
+    100160: R_WingC2
+    100162: R_WingC3
+    100164: Tongue1
+    100166: Tongue2
+    100168: Tongue3
+    100170: Waist
+    400000: C_Tail1
+    400002: C_Tail2
+    400004: C_Tail3
+    400006: C_Tail4
+    400008: C_Tail5
+    400010: C_Tail6
+    400012: Chest
+    400014: Chin
+    400016: Dragon_Body
+    400018: //RootNode
+    400020: Head
+    400022: Hip
+    400024: L_Arm
+    400026: L_EyeController1
+    400028: L_EyeController2
+    400030: L_FirstFinger1
+    400032: L_FirstFinger2
+    400034: L_Foot
+    400036: L_FootTipA1
+    400038: L_FootTipA2
+    400040: L_FootTipB1
+    400042: L_FootTipB2
+    400044: L_FootTipC1
+    400046: L_FootTipC2
+    400048: L_ForeArm
+    400050: L_Hand
+    400052: L_Heel
+    400054: L_Leg
+    400056: L_LegUp
+    400058: L_SecondFinger1
+    400060: L_SecondFinger2
+    400062: L_Shoulder
+    400064: L_ThirdFinger1
+    400066: L_ThirdFinger2
+    400068: L_WingA1
+    400070: L_WingA2
+    400072: L_WingA3
+    400074: L_WingB1
+    400076: L_WingB2
+    400078: L_WingB3
+    400080: L_WingBase
+    400082: L_WingBase1
+    400084: L_WingBase2
+    400086: L_WingC1
+    400088: L_WingC2
+    400090: L_WingC3
+    400092: Neck1
+    400094: Neck2
+    400096: R_Arm
+    400098: R_EyeController1
+    400100: R_EyeController2
+    400102: R_FirstFinger1
+    400104: R_FirstFinger2
+    400106: R_Foot
+    400108: R_FootTipA1
+    400110: R_FootTipA2
+    400112: R_FootTipB1
+    400114: R_FootTipB2
+    400116: R_FootTipC1
+    400118: R_FootTipC2
+    400120: R_ForeArm
+    400122: R_Hand
+    400124: R_Heel
+    400126: R_Leg
+    400128: R_LegUp
+    400130: R_SecondFinger1
+    400132: R_SecondFinger2
+    400134: R_Shoulder
+    400136: R_ThirdFinger1
+    400138: R_ThirdFinger2
+    400140: R_WingA1
+    400142: R_WingA2
+    400144: R_WingA3
+    400146: R_WingB1
+    400148: R_WingB2
+    400150: R_WingB3
+    400152: R_WingBase
+    400154: R_WingBase1
+    400156: R_WingBase2
+    400158: R_WingC1
+    400160: R_WingC2
+    400162: R_WingC3
+    400164: Tongue1
+    400166: Tongue2
+    400168: Tongue3
+    400170: Waist
+    4300000: Dragon_Body
+    9500000: //RootNode
+    13700000: Dragon_Body
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dragon_material
+    second: {fileID: 2100000, guid: 01f49a5c62e3f3345acb99eb4bf64551, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
