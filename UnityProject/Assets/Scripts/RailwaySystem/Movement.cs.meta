@@ -1,11 +1,22 @@
 fileFormatVersion: 2
 guid: 36eec67535a3fed4cad2902b27d146ed
-timeCreated: 1511935416
+timeCreated: 1525592324
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sceneManager: {instanceID: 0}
+  - stepAnalytics: {instanceID: 0}
+  - currentPoint: {instanceID: 0}
+  - nextPoint: {instanceID: 0}
+  - LeftShoe: {instanceID: 0}
+  - RightShoe: {instanceID: 0}
+  - textStart: {instanceID: 0}
+  - cameraMovement: {instanceID: 0}
+  - railwaySystem: {instanceID: 0}
+  - toMove: {instanceID: 0}
+  - FindShunObject: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

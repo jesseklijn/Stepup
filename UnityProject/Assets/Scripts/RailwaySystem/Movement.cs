@@ -42,6 +42,18 @@ public class Movement : MonoBehaviour
 
     public GameObject toMove;
 
+    //Shun Animation setup byTanaka
+    public GameObject FindShunObject;
+    AniCTR aniCTR;
+
+
+    void Start() //byTanaka
+    {
+        //Find AnimatedObject(ShunModel)
+        GameObject AnimatedObject = GameObject.Find(FindShunObject.name);
+        Debug.Log(AnimatedObject);
+        aniCTR = AnimatedObject.GetComponent<AniCTR>();
+    }
 
     private void Update()
     {
@@ -60,6 +72,9 @@ public class Movement : MonoBehaviour
                 Accelerate();
                 particleSystems[0].Play();
                 particleSystems[2].Play();
+
+
+                aniCTR.StartCoroutine("LeftStep");//byTanaka
             }    
 
             if (sceneManager.gameStarted == false)
@@ -90,6 +105,8 @@ public class Movement : MonoBehaviour
                 Accelerate();
                 particleSystems[1].Play();
                 particleSystems[3].Play();
+
+                aniCTR.StartCoroutine("RightStep"); //byTanaka
             }
 
             if (sceneManager.gameStarted == false)
