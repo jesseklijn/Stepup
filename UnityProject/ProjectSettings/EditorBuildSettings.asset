@@ -5,24 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Particle effects/Front.unity
-    guid: 5cdf8a23fb2c9994593ae29623220894
-  - enabled: 0
-    path: Assets/Scenes/Particle effects/Down to Up Diagonal.unity
-    guid: b4eac73673b419548a156ed71728d7f3
-  - enabled: 0
-    path: Assets/Scenes/Particle effects/Up to Down Diagonal.unity
-    guid: dccb31d8595410a4389244629778526e
-  - enabled: 0
-    path: Assets/Scenes/Levels/Level1_Prototype.unity
-    guid: 6e59c5d7f48c54a43b7f02b5ccf97e25
-  - enabled: 0
-    path: Assets/Scenes/Levels/Level1_Prototype4.unity
-    guid: 8e48cd466f2006e43888bf1c3f184da1
-  - enabled: 0
-    path: Assets/Scenes/Levels/Level1_Prototype5.unity
-    guid: 9e12b0c4035c2ae42bdd80ab65782912
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1_Prototype6.unity
-    guid: 4a7ba07d6b0f5d547851f5f61b013747
+    path: Assets/Scenes/LevelSelector/MainMenu.unity
+    guid: bb46bc44449cd3b4394deb68baea9d47
+  - enabled: 1
+    path: Assets/Scenes/LevelSelector/LevelSelector.unity
+    guid: d6ffd313b710d3b42ba9dbe009933d60
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1_Prototype7.unity
+    guid: a628dd89992257e46bae48756ae4860d
+  - enabled: 1
+    path: Assets/Scenes/Levels/StageDesign/RiverStage.unity
+    guid: 869d584b002040c4d91e3737d0e26cd2
+  - enabled: 1
+    path: Assets/Scenes/Levels/StageDesign/SpaceStage.unity
+    guid: 8495a17926b82084d8d9a7584b93dbe2
+  - enabled: 1
+    path: Assets/Scenes/Levels/StageDesign/SkyStage.unity
+    guid: b142d8a251b22bb4480dbb599d3446bd
+  m_configObjects: {}

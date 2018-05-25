@@ -129,8 +129,7 @@ public class StepUpSceneManager : BPMManager
     {
         //Restarts the game when called
 
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+       
 
     }
 

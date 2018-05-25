@@ -162,7 +162,7 @@ public class ScoreLevelSystem : MonoBehaviour
         {
 
             t += Time.deltaTime / time;
-            Debug.Log(Vector3.Lerp(startValue, endValue, t));
+            //Debug.Log(Vector3.Lerp(startValue, endValue, t));
             toMove.anchoredPosition3D = Vector3.Lerp(startValue, endValue, t);
             yield return 0;
 
