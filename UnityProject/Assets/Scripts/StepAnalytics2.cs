@@ -8,11 +8,12 @@ using UnityEngine;
 public class StepAnalytics2 : MonoBehaviour 
 {
 	private const float CompareIsZeroTolerance = 0.000000000001f;
-	private double _cv = 1;
-	private double _lcv, _rcv;
+
+	private double _cv, _lcv, _rcv, _currentCV;
 	private List<double> TimeStamps = new List<double>();
-	private List<double>LeftTimeStamps = new List<double>();
-	private List<double>RightTimeStamps = new List<double>();
+	private List<double> LeftTimeStamps = new List<double>();
+	private List<double> RightTimeStamps = new List<double>();
+	public List<double> RecentTimeStamps = new List<double>();
 	//private List<string> feet = new List<string>();
 	private List<string[]> rowData = new List<string[]>();
 
@@ -40,10 +41,12 @@ public class StepAnalytics2 : MonoBehaviour
 			if(!(TimeStamps.Count == 0))
 			{
 				TimeStamps.Add(time-(TimeStamps[TimeStamps.Count-1]));
+				RecentTimeStamps.Add(time-(TimeStamps[TimeStamps.Count-1]));
 			}
 			else
 			{
 				TimeStamps.Add(time);
+				RecentTimeStamps.Add(time);
 			}
 		}
 
@@ -60,16 +63,25 @@ public class StepAnalytics2 : MonoBehaviour
 			if(!(TimeStamps.Count == 0))
 			{
 				TimeStamps.Add(time-(TimeStamps[TimeStamps.Count-1]));
+				RecentTimeStamps.Add(time-(TimeStamps[TimeStamps.Count-1]));
 			}
 			else
 			{
 				TimeStamps.Add(time);
+				RecentTimeStamps.Add(time);
 			}
 			
 		}
 		
 		//feet.Add(foot);
 	}
+
+	public Double GetCurrentCV()
+	{
+		_currentCV = ConvertToCV(RecentTimeStamps);
+		return _currentCV;
+	}
+
 
 	public Double GetCV()
 	{

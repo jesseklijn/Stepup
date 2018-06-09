@@ -23,6 +23,8 @@ public class StepUpSceneManager : BPMManager
     public CountdownPlayer countDownPlayer;
     public GemsManager gemsManager;
 
+    public float gemInterval; 
+
     //Shun StepMachineSettings by Tanaka
     public GameObject ShunObject;
     AniCTR _aniCTR; 
@@ -53,6 +55,8 @@ public class StepUpSceneManager : BPMManager
     {
         StartUpdating();
         gameStarted = true;
+        InvokeRepeating("NextGemCheck", gemInterval, gemInterval);
+        InvokeRepeating("ResetRecentStepsList", gemInterval+1, gemInterval);
         StartCoroutine(Timer(0, timeForTutorialToTurnOff));
     }
     public void StartCountDown()
@@ -66,6 +70,27 @@ public class StepUpSceneManager : BPMManager
         movementScript.DisplayShoe();
 
     }
+
+    public void NextGemCheck()
+	{
+        double _currentCV = movementScript.stepAnalytics.GetCurrentCV();
+        Debug.Log("Current CV is: " + _currentCV);
+
+        if(_currentCV < 1.5) //If CV is underneith the acceptable range
+        {
+            //gemsManager spawn pickup-able gem
+        }
+        else
+        {
+            //gemsManager spawn dropping gem
+        }
+    }
+
+    public void ResetRecentStepsList()
+	{
+        //Debug.Log("Current List Length is: " + movementScript.stepAnalytics.RecentTimeStamps.Count);
+		movementScript.stepAnalytics.RecentTimeStamps.Clear();
+	}
 
     public override void BPMUPDATE()
     {

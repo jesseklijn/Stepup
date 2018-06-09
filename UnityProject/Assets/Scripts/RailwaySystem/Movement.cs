@@ -128,8 +128,6 @@ public class Movement : MonoBehaviour
         {
             UpdateMovement();
         }
-
-
     }
 
     public void DisplayShoe()

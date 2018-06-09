@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4267996688113062}
   - component: {fileID: 114209864709466134}
   - component: {fileID: 114163591210740636}
-  - component: {fileID: 114505315831031146}
+  - component: {fileID: 114176526698569546}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114868342315251492}
   m_Layer: 0
   m_Name: ScoreSystem
-  m_TagString: Untagged
+  m_TagString: ScoreSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,19 @@ MonoBehaviour:
   - 3
   display: {fileID: 0}
   isCounting: 0
+--- !u!114 &114176526698569546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1011750163991532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c684c469dac1acb46afe44ab5c1d9152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecentTimeStamps: []
+  bpm: 110
 --- !u!114 &114209864709466134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCounting: 0
-  _INTENDED_BPM: 110
-  _FULL_GAME_CYCLE: 60
+  _INTENDED_BPM: 220
+  _FULL_GAME_CYCLE: 120
   MIN_MAX_MULTIPLIER: 0.5
   MIN_BPM: 0
   MAX_BPM: 150
@@ -155,22 +168,18 @@ MonoBehaviour:
   STEP: 1
   lineRenderer: {fileID: 120700895130968582}
   gameStarted: 0
-  tutorial: 0
+  gameFinished: 0
+  tutorial: 1
   timeForTutorialToTurnOff: 10
+  timerRunning: 0
+  distanceFromStartToFinish: 0
+  CurrentProgressDistanceTraveled: 0
   timePassed: 0
   movementScript: {fileID: 0}
   countDownPlayer: {fileID: 114163591210740636}
---- !u!114 &114505315831031146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1011750163991532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16ce3446b76267c46a4683eca485bd62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  gemsManager: {fileID: 0}
+  gemInterval: 6
+  ShunObject: {fileID: 0}
 --- !u!114 &114791068739944912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreDisplay: {fileID: 0}
   gemScore: {fileID: 0}
+  progressBar: {fileID: 0}
   movementScript: {fileID: 0}
   sceneManager: {fileID: 114209864709466134}
 --- !u!114 &114868342315251492
@@ -198,10 +208,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameScore: 0
-  gemCount: 0
-  increment: 0100000002000000050000000a00000090000000d1000000
+  increment: 0100000002000000050000000a0000000f00000064000000
   scoreToIncrease: []
   display: {fileID: 114791068739944912}
+  sceneManager: {fileID: 114209864709466134}
+  railWaySystem: {fileID: 0}
+  movement: {fileID: 0}
+  gemCount: 0
+  sapphireCount: 0
+  rubyCount: 0
+  diamondCount: 0
+  particleSystems:
+  - {fileID: 0}
+  progressBar: {fileID: 0}
 --- !u!120 &120700895130968582
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -215,6 +234,7 @@ LineRenderer:
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -243,12 +263,15 @@ LineRenderer:
     widthCurve:
       serializedVersion: 2
       m_Curve:
-      - serializedVersion: 2
+      - serializedVersion: 3
         time: 0
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
