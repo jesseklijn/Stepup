@@ -19,19 +19,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _A_normalmap:
-        m_Texture: {fileID: 2800000, guid: 5eaf95dccaf236b4ba82994c1200196e, type: 3}
+        m_Texture: {fileID: 2800000, guid: db8251d5f6c73364db22041d96d05b57, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _B_normalmap:
         m_Texture: {fileID: 2800000, guid: 718f1d6dea003634c88cadff740c62ea, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 4, y: 4}
         m_Offset: {x: 0, y: 0}
     - _BaseColorB:
         m_Texture: {fileID: 2800000, guid: efb54819b9603c84c9cc8b13c0633251, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 4, y: 4}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 5eaf95dccaf236b4ba82994c1200196e, type: 3}
+        m_Texture: {fileID: 2800000, guid: db8251d5f6c73364db22041d96d05b57, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 133b090509d83324996608078843f985, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6f1cd0a5c4f2b464bafeb982c8b9ddd5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -75,7 +75,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _maskGreen:
-        m_Texture: {fileID: 2800000, guid: 9128bf44c5a2b054a9a6e226552bd844, type: 3}
+        m_Texture: {fileID: 2800000, guid: 465234ce96595804ca6a688c93b494c6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -85,11 +85,11 @@ Material:
     - _DstBlend: 0
     - _EmissionSwitch: 0
     - _EmissionValue: 1
-    - _Gloss: 0.2
+    - _Gloss: 0.1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 0.1
+    - _Metallic: 0.2
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
