@@ -1,0 +1,434 @@
+fileFormatVersion: 2
+guid: df1024a0ebba975459f98c7e724b2ecf
+timeCreated: 1527059330
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: bamboowall
+    100002: boat
+    100004: boat_BG
+    100006: bridge_1
+    100008: bridge_3
+    100010: bridge_4
+    100012: car
+    100014: cherry_tree
+    100016: dock
+    100018: dock_wood
+    100020: egg
+    100022: fuji
+    100024: grass_plane_1
+    100026: grass_plane_2
+    100028: grass_plane_3
+    100030: grass_river_2
+    100032: ground
+    100034: guardrail
+    100036: house
+    100038: hut
+    100040: island
+    100042: leaves_1
+    100044: leaves_2
+    100046: leaves_3
+    100048: leaves_4
+    100050: leaves_5
+    100052: leaves_6
+    100054: leaves_7
+    100056: leaves_8
+    100058: mountain_plane
+    100060: pad_L
+    100062: pad_R
+    100064: //RootNode
+    100066: screw
+    100068: screw_2
+    100070: stonewall
+    100072: tree_plane1
+    100074: watersurface
+    100076: willow_leaves
+    100078: willow_tree
+    100080: woodenfence
+    400000: bamboowall
+    400002: boat
+    400004: boat_BG
+    400006: bridge_1
+    400008: bridge_3
+    400010: bridge_4
+    400012: car
+    400014: cherry_tree
+    400016: dock
+    400018: dock_wood
+    400020: egg
+    400022: fuji
+    400024: grass_plane_1
+    400026: grass_plane_2
+    400028: grass_plane_3
+    400030: grass_river_2
+    400032: ground
+    400034: guardrail
+    400036: house
+    400038: hut
+    400040: island
+    400042: leaves_1
+    400044: leaves_2
+    400046: leaves_3
+    400048: leaves_4
+    400050: leaves_5
+    400052: leaves_6
+    400054: leaves_7
+    400056: leaves_8
+    400058: mountain_plane
+    400060: pad_L
+    400062: pad_R
+    400064: //RootNode
+    400066: screw
+    400068: screw_2
+    400070: stonewall
+    400072: tree_plane1
+    400074: watersurface
+    400076: willow_leaves
+    400078: willow_tree
+    400080: woodenfence
+    2300000: bamboowall
+    2300002: boat
+    2300004: boat_BG
+    2300006: bridge_1
+    2300008: bridge_3
+    2300010: bridge_4
+    2300012: car
+    2300014: cherry_tree
+    2300016: dock
+    2300018: dock_wood
+    2300020: egg
+    2300022: fuji
+    2300024: grass_plane_1
+    2300026: grass_plane_2
+    2300028: grass_plane_3
+    2300030: grass_river_2
+    2300032: ground
+    2300034: guardrail
+    2300036: house
+    2300038: hut
+    2300040: island
+    2300042: leaves_1
+    2300044: leaves_2
+    2300046: leaves_3
+    2300048: leaves_4
+    2300050: leaves_5
+    2300052: leaves_6
+    2300054: leaves_7
+    2300056: leaves_8
+    2300058: mountain_plane
+    2300060: pad_L
+    2300062: pad_R
+    2300064: screw
+    2300066: screw_2
+    2300068: stonewall
+    2300070: tree_plane1
+    2300072: watersurface
+    2300074: willow_leaves
+    2300076: willow_tree
+    2300078: woodenfence
+    3300000: bamboowall
+    3300002: boat
+    3300004: boat_BG
+    3300006: bridge_1
+    3300008: bridge_3
+    3300010: bridge_4
+    3300012: car
+    3300014: cherry_tree
+    3300016: dock
+    3300018: dock_wood
+    3300020: egg
+    3300022: fuji
+    3300024: grass_plane_1
+    3300026: grass_plane_2
+    3300028: grass_plane_3
+    3300030: grass_river_2
+    3300032: ground
+    3300034: guardrail
+    3300036: house
+    3300038: hut
+    3300040: island
+    3300042: leaves_1
+    3300044: leaves_2
+    3300046: leaves_3
+    3300048: leaves_4
+    3300050: leaves_5
+    3300052: leaves_6
+    3300054: leaves_7
+    3300056: leaves_8
+    3300058: mountain_plane
+    3300060: pad_L
+    3300062: pad_R
+    3300064: screw
+    3300066: screw_2
+    3300068: stonewall
+    3300070: tree_plane1
+    3300072: watersurface
+    3300074: willow_leaves
+    3300076: willow_tree
+    3300078: woodenfence
+    4300000: bridge_1
+    4300002: bridge_3
+    4300004: bridge_4
+    4300006: car
+    4300008: cherry_tree
+    4300010: dock
+    4300012: dock_wood
+    4300014: egg
+    4300016: fuji
+    4300018: grass_river_2
+    4300020: grass_plane_2
+    4300022: grass_plane_1
+    4300024: grass_plane_3
+    4300026: ground
+    4300028: guardrail
+    4300030: house
+    4300032: hut
+    4300034: island
+    4300036: leaves_8
+    4300038: leaves_6
+    4300040: leaves_5
+    4300042: leaves_7
+    4300044: leaves_4
+    4300046: leaves_3
+    4300048: leaves_2
+    4300050: leaves_1
+    4300052: mountain_plane
+    4300054: stonewall
+    4300056: tree_plane1
+    4300058: watersurface
+    4300060: willow_tree
+    4300062: willow_leaves
+    4300064: woodenfence
+    4300066: bamboowall
+    4300068: boat
+    4300070: screw_2
+    4300072: pad_L
+    4300074: pad_R
+    4300076: screw
+    4300078: boat_BG
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bamboowall
+    second: {fileID: 2100000, guid: bbdb5a5fda8f8a14abedf482dedc5269, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: f1bead83568a9d047be506e401dfe84f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn2
+    second: {fileID: 2100000, guid: f8524af529234b64b9b23469f478ed0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn3
+    second: {fileID: 2100000, guid: 04dc4d0af58f6e94995bfcdf554bb3b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn4
+    second: {fileID: 2100000, guid: 9c85d22ce04651341824798581d31cd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn5
+    second: {fileID: 2100000, guid: bfcb34c501479fc49afcd3919a8455f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boat
+    second: {fileID: 2100000, guid: a22ec3f3923c6de4e95108e14ab8fb61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boat1
+    second: {fileID: 2100000, guid: a22ec3f3923c6de4e95108e14ab8fb61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bridge_1
+    second: {fileID: 2100000, guid: 27399f7aa1f1b3241b6b8edd9379b006, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bridge_2
+    second: {fileID: 2100000, guid: 3700332d9915b91479372b242102ef74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bridge_3
+    second: {fileID: 2100000, guid: d6cf7e80f859dba4799aa89b0a85f007, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: car
+    second: {fileID: 2100000, guid: c6ab3f20ff428dc409522f4b367c1d15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dock
+    second: {fileID: 2100000, guid: a693035522cc1b14ebc076f5242fbdfe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dock1
+    second: {fileID: 2100000, guid: a693035522cc1b14ebc076f5242fbdfe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fuji
+    second: {fileID: 2100000, guid: 988eae747029a944cb8ee330fd0aa715, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass_plane
+    second: {fileID: 2100000, guid: b9d62b1b23755b34e9c2864666422780, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground
+    second: {fileID: 2100000, guid: 3b658639c35d7c24698b784be364a7cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: guardrail
+    second: {fileID: 2100000, guid: e23dbecf8a16d104c89143a08ffe6785, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: house
+    second: {fileID: 2100000, guid: c07f672def51e624b8911b0fefd92b7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hut
+    second: {fileID: 2100000, guid: 882255ec475bc6548b0ebd508176d73a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: island
+    second: {fileID: 2100000, guid: 4477c865ee84d9e47b21aa8e58825114, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leaves
+    second: {fileID: 2100000, guid: 5a9caf3ce5b6fb143936223a987fc48e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screw_R
+    second: {fileID: 2100000, guid: ffc12da584946d647ab7fee709d9a3b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stonewall
+    second: {fileID: 2100000, guid: dcf955dbd55335342b0c17534a252888, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree1
+    second: {fileID: 2100000, guid: a3f3e6bb9a743224f9bfbafa5c466b5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tree_plane
+    second: {fileID: 2100000, guid: da76ab7cb210d3a41a975b8eb6aea78d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: watersurface
+    second: {fileID: 2100000, guid: 0e1384a6e150407489fafd13d08c07fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: willow
+    second: {fileID: 2100000, guid: d5ef54df9d1f9794a8474522f588ebf7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: woodenfence
+    second: {fileID: 2100000, guid: a693035522cc1b14ebc076f5242fbdfe, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
