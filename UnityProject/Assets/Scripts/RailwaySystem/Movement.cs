@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
     public GameObject toMove;
 
     //Shun Animation setup byTanaka
-    public GameObject FindShunObject;
+    /*public GameObject FindShunObject;
     AniCTR aniCTR;
 
 
@@ -53,7 +53,7 @@ public class Movement : MonoBehaviour
         GameObject AnimatedObject = GameObject.Find(FindShunObject.name);
         Debug.Log(AnimatedObject);
         aniCTR = AnimatedObject.GetComponent<AniCTR>();
-    }
+    }*/
 
     private void Update()
     {
@@ -74,7 +74,7 @@ public class Movement : MonoBehaviour
                 particleSystems[2].Play();
 
 
-                aniCTR.StartCoroutine("LeftStep");//byTanaka
+                //aniCTR.StartCoroutine("LeftStep");//byTanaka
             }    
 
             if (sceneManager.gameStarted == false)
@@ -106,7 +106,7 @@ public class Movement : MonoBehaviour
                 particleSystems[1].Play();
                 particleSystems[3].Play();
 
-                aniCTR.StartCoroutine("RightStep"); //byTanaka
+                //aniCTR.StartCoroutine("RightStep"); //byTanaka
             }
 
             if (sceneManager.gameStarted == false)

@@ -1,13 +1,9 @@
 fileFormatVersion: 2
 guid: 114b4db7360e3424ab4f23ff0582d3ed
-timeCreated: 1525590039
-licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - ChildObject: {instanceID: 0}
-  - StepMachine: {fileID: 100016, guid: 6ccf66bfccfe3484499ce5fd9b5646e1, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

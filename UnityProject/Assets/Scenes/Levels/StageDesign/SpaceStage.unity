@@ -220,7 +220,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3e1f10289b12ec349a35cfcfb4dbfe43, type: 2}
+  - {fileID: 2100000, guid: e94ffb7659b73824d8d2f5757bebbe6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6319,6 +6319,16 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198854739107269040, guid: c456a83df77cad8469e4c51cf58ad7ed,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198854739107269040, guid: c456a83df77cad8469e4c51cf58ad7ed,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198854739107269040, guid: c456a83df77cad8469e4c51cf58ad7ed,
         type: 2}
@@ -17785,6 +17795,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1946588871867834, guid: bdcfc1ad4f885694ebc15047e50f3631, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdcfc1ad4f885694ebc15047e50f3631, type: 2}
   m_IsPrefabParent: 0
@@ -28429,6 +28443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChildObject: {fileID: 923412420}
   StepMachine: {fileID: 100016, guid: 6ccf66bfccfe3484499ce5fd9b5646e1, type: 3}
+  sceneManager: {fileID: 147405595}
 --- !u!95 &479011532
 Animator:
   serializedVersion: 3
@@ -28557,7 +28572,6 @@ MonoBehaviour:
   cameraMovement: {fileID: 2045993293}
   railwaySystem: {fileID: 556540137}
   toMove: {fileID: 2045993292}
-  FindShunObject: {fileID: 479011529}
 --- !u!1 &517940351
 GameObject:
   m_ObjectHideFlags: 0
@@ -28949,7 +28963,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3e1f10289b12ec349a35cfcfb4dbfe43, type: 2}
+  - {fileID: 2100000, guid: e94ffb7659b73824d8d2f5757bebbe6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30759,7 +30773,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreLevelSystem: {fileID: 1246386770}
   canvas: {fileID: 1989410855}
-  ShunObject: {fileID: 479011529}
 --- !u!1 &831152238
 GameObject:
   m_ObjectHideFlags: 0
@@ -30869,9 +30882,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3e1f10289b12ec349a35cfcfb4dbfe43, type: 2}
-  - {fileID: 2100000, guid: fe1bf68bdb2d90e41bc20743ea1c3ad8, type: 2}
-  - {fileID: 2100000, guid: d5bc89f9b07290646b17ec957541e7a0, type: 2}
+  - {fileID: 2100000, guid: e94ffb7659b73824d8d2f5757bebbe6b, type: 2}
+  - {fileID: 2100000, guid: b033a577bf44eca4391c18c452a2b7ca, type: 2}
+  - {fileID: 2100000, guid: b033a577bf44eca4391c18c452a2b7ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -50616,7 +50629,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3e1f10289b12ec349a35cfcfb4dbfe43, type: 2}
+  - {fileID: 2100000, guid: e94ffb7659b73824d8d2f5757bebbe6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -51435,8 +51448,8 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: fe1bf68bdb2d90e41bc20743ea1c3ad8, type: 2}
-  - {fileID: 2100000, guid: 3e1f10289b12ec349a35cfcfb4dbfe43, type: 2}
+  - {fileID: 2100000, guid: b033a577bf44eca4391c18c452a2b7ca, type: 2}
+  - {fileID: 2100000, guid: e94ffb7659b73824d8d2f5757bebbe6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76532,6 +76545,14 @@ Prefab:
     - target: {fileID: 19800000, guid: 5a97962f7d5ba4df0823334b52c7c02c, type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 5a97962f7d5ba4df0823334b52c7c02c, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 5a97962f7d5ba4df0823334b52c7c02c, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 5a97962f7d5ba4df0823334b52c7c02c, type: 2}
       propertyPath: ShapeModule.radiusThickness

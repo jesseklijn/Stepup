@@ -8,20 +8,21 @@ public class FinishCollider : MonoBehaviour
     public ScoreLevelSystem scoreLevelSystem;
     public Canvas canvas;
 
-    AniCTR _aniCTR; //reading ANiCTR script bytanaka
-    public GameObject ShunObject;
+    /*AniCTR _aniCTR; //reading ANiCTR script bytanaka
+   public GameObject ShunObject;
 
-    //By Tanaka
-    void Start()
-    {
+   By Tanaka
+   void Start()
+   {
 
-        //Find AnimatedObject(ShunModel)
-        GameObject AnimatedObject = GameObject.Find(ShunObject.name);
-        Debug.Log(AnimatedObject);
-        _aniCTR = AnimatedObject.GetComponent<AniCTR>();
+       //Find AnimatedObject(ShunModel)
+       GameObject AnimatedObject = GameObject.Find(ShunObject.name);
+       Debug.Log(AnimatedObject);
+       _aniCTR = AnimatedObject.GetComponent<AniCTR>();
 
 
-    }
+   }*/
+
 
 
     private void OnTriggerEnter(Collider other)
@@ -29,7 +30,7 @@ public class FinishCollider : MonoBehaviour
 
         //canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
-        _aniCTR.Goal(); //Animation_Shun by tanaka
+        //_aniCTR.Goal(); //Animation_Shun by tanaka
 
         scoreLevelSystem.gameObject.SetActive(true);
 

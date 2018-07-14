@@ -26,17 +26,19 @@ public class StepUpSceneManager : BPMManager
     public float gemInterval; 
 
     //Shun StepMachineSettings by Tanaka
-    public GameObject ShunObject;
+    /*public GameObject ShunObject;
     AniCTR _aniCTR; 
+    */
 
     // Use this for initialization
     void Start()
     {
         Initialize();
 
-        //Find AnimatedObject(ShunModel) byTanaka
+        /*//Find AnimatedObject(ShunModel) byTanaka
         GameObject AnimatedObject = GameObject.Find(ShunObject.name);
         _aniCTR = AnimatedObject.GetComponent<AniCTR>();
+        */
     }
 
     public void RefreshGems()
@@ -62,7 +64,7 @@ public class StepUpSceneManager : BPMManager
     public void StartCountDown()
     {
         StartCoroutine(countDownPlayer.CountDownFrom(3, countDownPlayer.audioClips, 1));
-        _aniCTR.GameStart(); //byTanaka
+        ///_aniCTR.GameStart(); //byTanaka
     }
     public override void BPMEARLYUPDATE()
     {

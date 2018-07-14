@@ -16,6 +16,9 @@ public class AniCTR : MonoBehaviour
     private GameObject EffectObject; //gamestart effect
     private GameObject StepAnimatedMachine; // step machine of minecart
 
+    public StepUpSceneManager sceneManager;
+
+
     void Start()
     {
         anim = this.GetComponent<Animator>();
@@ -25,6 +28,47 @@ public class AniCTR : MonoBehaviour
         EffectObject.SetActive(false);
            
     }
+
+    void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) == true)
+        {
+            if (sceneManager.gameStarted == false)
+            {
+                GameStart();
+
+            }
+
+            if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
+            {
+                StartCoroutine("RightStep");
+            }
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) == true)
+        {
+            if (sceneManager.gameStarted == false)
+            {
+                GameStart();
+
+            }
+
+            if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
+            {
+                StartCoroutine("LeftStep");
+            }
+        }
+
+        if (sceneManager.gameFinished == true)
+        {
+            Goal();
+
+        }
+
+    }
+
 
     public IEnumerator RightStep()
     {

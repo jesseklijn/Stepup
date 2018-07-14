@@ -27,7 +27,7 @@ public class BirdsController : MonoBehaviour {
 
         if (Player.transform.position.z > 135)
         {
-            BirdsAnimator.SetTrigger("Fly");           
+            BirdsAnimator.SetTrigger("Fly");
             Passing = false;
         }
     }
