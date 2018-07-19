@@ -11,6 +11,13 @@ public class Singleton : MonoBehaviour
         set { _audioController = value; }
     }
 
+    static CinematicController _cinematicController;
+    public static CinematicController cinematicController
+    {
+        get { return _cinematicController; }
+        set { _cinematicController = value; }
+    }
+
     void Awake()
     {        
         if (_audioController == null)
@@ -23,6 +30,18 @@ public class Singleton : MonoBehaviour
         {
             AudioController currentAudioController = GetComponentInChildren<AudioController>();
             Destroy(currentAudioController.gameObject);
+        }
+
+        if (_cinematicController == null)
+        {
+            _cinematicController = GetComponentInChildren<CinematicController>();
+            _cinematicController.transform.SetParent(null);
+            DontDestroyOnLoad(_cinematicController.gameObject);
+        }
+        else
+        {
+            CinematicController currentCinematicController = GetComponentInChildren<CinematicController>();
+            Destroy(currentCinematicController.gameObject);
         }
 
         Destroy(gameObject);
