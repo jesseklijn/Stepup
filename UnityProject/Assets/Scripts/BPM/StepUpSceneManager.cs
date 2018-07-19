@@ -64,6 +64,8 @@ public class StepUpSceneManager : BPMManager
     public void StartCountDown()
     {
         StartCoroutine(countDownPlayer.CountDownFrom(3, countDownPlayer.audioClips, 1));
+        Singleton.cinematicController.PlayCinematic(1); //Rotate to player's back cutscene
+        Singleton.cinematicController.PrioCam(0);
         ///_aniCTR.GameStart(); //byTanaka
     }
     public override void BPMEARLYUPDATE()
