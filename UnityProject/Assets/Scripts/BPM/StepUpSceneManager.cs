@@ -22,6 +22,7 @@ public class StepUpSceneManager : BPMManager
     public Movement movementScript;
     public CountdownPlayer countDownPlayer;
     public GemsManager gemsManager;
+    public HappyMeter hMeter;
 
     public float gemInterval; 
 
@@ -55,18 +56,32 @@ public class StepUpSceneManager : BPMManager
 
     public void StartGame()
     {
-        StartUpdating();
-        gameStarted = true;
-        InvokeRepeating("NextGemCheck", gemInterval, gemInterval);
-        InvokeRepeating("ResetRecentStepsList", gemInterval+1, gemInterval);
-        StartCoroutine(Timer(0, timeForTutorialToTurnOff));
+        if(Singleton.cinematicController.introDone)
+        {
+            StartUpdating();
+            gameStarted = true;
+            InvokeRepeating("NextGemCheck", gemInterval, gemInterval);
+            InvokeRepeating("ResetRecentStepsList", gemInterval+1, gemInterval);
+            StartCoroutine(Timer(0, timeForTutorialToTurnOff));
+        }
+        else
+        {
+            StartGame();
+        }
+        
     }
     public void StartCountDown()
     {
-        StartCoroutine(countDownPlayer.CountDownFrom(3, countDownPlayer.audioClips, 1));
-        Singleton.cinematicController.PlayCinematic(1); //Rotate to player's back cutscene
-        Singleton.cinematicController.PrioCam(0);
-        ///_aniCTR.GameStart(); //byTanaka
+        if(Singleton.cinematicController.introDone && !Singleton.cinematicController.turnDoing)
+        {
+            StartCoroutine(countDownPlayer.CountDownFrom(3, countDownPlayer.audioClips, 1));
+
+            Singleton.cinematicController.turnDoing = true;
+            Singleton.cinematicController.PlayCinematic(1); //Rotate to player's back cutscene
+            Singleton.cinematicController.PrioCam(0);
+            ///_aniCTR.GameStart(); //byTanaka
+        }
+        
     }
     public override void BPMEARLYUPDATE()
     {
@@ -79,6 +94,7 @@ public class StepUpSceneManager : BPMManager
 	{
         double _currentCV = movementScript.stepAnalytics.GetCurrentCV();
         Debug.Log("Current CV is: " + _currentCV);
+        hMeter.PopUpHappyMeter(_currentCV);
 
         if(_currentCV < 1.5) //If CV is underneith the acceptable range
         {

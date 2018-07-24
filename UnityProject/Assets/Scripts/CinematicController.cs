@@ -11,22 +11,35 @@ public class CinematicController : MonoBehaviour
 	public List<TimelineAsset> cinematics;
 
 	public PlayableDirector director;
-	
+
+	public bool introDoing = false, introDone = false, turnDoing = false;
+
+	void OnEnableScan()
+    {
+        director.stopped += OnPlayableDirectorStopped;
+    }
+
+    void OnPlayableDirectorStopped(PlayableDirector aDirector)
+    {
+        if (director == aDirector)
+        {
+			introDone = true;
+			Debug.Log("DIRECTOR HAS QUIT!!!");
+			OnDisableScan();
+		}
+    }	
 
 	// Use this for initialization
 	void Update () 
 	{
-		if(Input.GetKey(KeyCode.P))
+		if((Input.GetKey(KeyCode.LeftArrow) && introDoing == false) || (Input.GetKey(KeyCode.RightArrow ) && introDoing == false) )
 		{
+			introDoing = true;
+			OnEnableScan();
+
 			PrioCam(1);
 			PlayCinematic(0);
 		}
-
-		// if(Input.GetKey(KeyCode.O))
-		// {
-		// 	PrioCam(0);
-		// 	PlayCinematic(1);
-		// }
 	}
 
 	public void PlayCinematic(int cinematicNumber)
@@ -50,4 +63,9 @@ public class CinematicController : MonoBehaviour
 			}
 		}
 	}
+
+	void OnDisableScan()
+    {
+        director.stopped -= OnPlayableDirectorStopped;
+    }
 }
