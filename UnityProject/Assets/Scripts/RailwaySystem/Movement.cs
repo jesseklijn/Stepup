@@ -57,10 +57,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-
-
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow) == true)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) == true && Singleton.cinematicController.introDone)
         {
 
             rightShoe = false;
@@ -93,7 +90,7 @@ public class Movement : MonoBehaviour
             }
             
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) == true)
+        if (Input.GetKeyDown(KeyCode.RightArrow) == true && Singleton.cinematicController.introDone)
         {
 
             leftShoe = false;

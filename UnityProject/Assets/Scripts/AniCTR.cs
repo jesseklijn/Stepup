@@ -34,30 +34,34 @@ public class AniCTR : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow) == true)
         {
-            if (sceneManager.gameStarted == false)
+            if(Singleton.cinematicController.introDone)
             {
-                GameStart();
+                if (sceneManager.gameStarted == false)
+                {
+                    GameStart();
+                }
 
-            }
-
-            if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
-            {
-                StartCoroutine("RightStep");
+                if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
+                {
+                    StartCoroutine("RightStep");
+                }
             }
         }
 
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) == true)
         {
-            if (sceneManager.gameStarted == false)
+            if(Singleton.cinematicController.introDone)
             {
-                GameStart();
+                if (sceneManager.gameStarted == false)
+                {
+                    GameStart();
+                }
 
-            }
-
-            if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
-            {
-                StartCoroutine("LeftStep");
+                if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
+                {
+                    StartCoroutine("LeftStep");
+                }
             }
         }
 
@@ -68,7 +72,6 @@ public class AniCTR : MonoBehaviour
         }
 
     }
-
 
     public IEnumerator RightStep()
     {
