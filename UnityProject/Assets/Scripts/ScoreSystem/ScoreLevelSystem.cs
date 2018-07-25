@@ -1,5 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor;
+using UnityEditor.Experimental.RestService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,10 +30,16 @@ public class ScoreLevelSystem : MonoBehaviour
     //ScoreOverview
     public Text scoreDisplay;
     public Text sapphireDisplay, rubyDisplay, diamondDisplay;
+    public Text sapphireTotalScore, rubyTotalScore, diamondTotalScore;
+
+    //ScoreValues of Gems
+    public int sapphireScoreAmount = 1000, rubyScoreAmount = 3000, diamondScoreAmount = 5000;
+
     //Rank in ScoreOverview
     public Image rankDisplay;
     public RectTransform rankRect;
     public Sprite[] rankSprites;
+    public Text[] rankTexts;
 
     //HighscoreOverview
     public Text[] rankDisplays;
@@ -49,12 +61,21 @@ public class ScoreLevelSystem : MonoBehaviour
 
     public AudioController controller;
 
-
+    //RankData
+    
+    public RankData rankData;
+    public RankData filteredRank;
     public void OnEnable()
     {
         controller = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
+        rankData = new RankData();
+        rankData.rankList = new List<RankData.RankHolder>();
+        LoadRankData();
+        SaveRankData("cavestage");
+       
+        filteredRank.rankList = rankData.OrderRankByHighestScore("cavestage");
         UpdateDisplay();
-        StartCoroutine(MoveTowardsDestination(transitionTime, startFinishPos, endFinishPos, mainOverviewRect, true,false));
+        StartCoroutine(MoveTowardsDestination(transitionTime, startFinishPos, endFinishPos, mainOverviewRect, true, false));
     }
 
     public enum Ranks
@@ -69,16 +90,32 @@ public class ScoreLevelSystem : MonoBehaviour
 
     //TODO
     //Loads all data from save. If no data, datasheet will be created.
-    public int[] LoadRankData()
+    public bool LoadRankData()
     {
-        return null;
+        if (File.Exists((Application.persistentDataPath + "/RankData.dat")))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/RankData.dat", FileMode.Open);
+            rankData = (RankData)bf.Deserialize(file);
+            file.Close();
+            Debug.Log(rankData.rankList.Count);
+            return true;
+        }
+        return false;
     }
 
     //TODO
     //Saves all data in data folder. If no datasheet is available, will create data sheet.
-    public bool SaveRankData()
+    public bool SaveRankData(string levelName)
     {
-
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/RankData.dat");
+        RankData.RankHolder rankHolder = new RankData.RankHolder();
+        rankHolder.levelName = levelName;
+        rankHolder.score = scoreSystem.inGameScore;
+        rankData.rankList.Add(rankHolder);
+        bf.Serialize(file,rankData);
+        file.Close();
 
         return true;
     }
@@ -171,11 +208,14 @@ public class ScoreLevelSystem : MonoBehaviour
 
         }
 
+        //TODO: Add CV METRE HERE
+
         if (initial == true)
         {
             AnimateRank();
             StartCoroutine(Timer(0, timeLimitOverview));
         }
+        
         if (endTheScene == true)
         {
             controller.timeline.Stop();
@@ -195,12 +235,23 @@ public class ScoreLevelSystem : MonoBehaviour
         scoreDisplay.text = scoreSystem.inGameScore.ToString();
 
         sapphireDisplay.text = scoreSystem.sapphireCount.ToString();
-
+        sapphireTotalScore.text = (scoreSystem.sapphireCount * sapphireScoreAmount).ToString() + " pts";
         rubyDisplay.text = scoreSystem.rubyCount.ToString();
-
+        rubyTotalScore.text = (scoreSystem.rubyCount * rubyScoreAmount).ToString() + " pts";
         diamondDisplay.text = scoreSystem.diamondCount.ToString();
+        diamondTotalScore.text = (scoreSystem.diamondCount * diamondScoreAmount).ToString() + " pts";
 
-
+        for (int i = 0; i < rankTexts.Length; i++)
+        {
+            if (rankData.rankList.Count > i)
+            {
+                rankTexts[i].text = filteredRank.rankList[i].score.ToString();
+            }
+            else
+            {
+                rankTexts[i].text = "-------";
+            }
+        }
 
         DisplayRank(DetermineRank());
 
@@ -228,7 +279,7 @@ public class ScoreLevelSystem : MonoBehaviour
             else if (hasShownHighscore == false)
             {
                 //Show highscore (Do animation)
-                StartCoroutine(MoveTowardsDestination(transitionTime, startOverviewPos, endOverviewPos, mainOverviewRect, false,false));
+                StartCoroutine(MoveTowardsDestination(transitionTime, startOverviewPos, endOverviewPos, mainOverviewRect, false, false));
                 //Set to true
                 hasShownHighscore = true;
                 //Restart this timer
@@ -248,4 +299,76 @@ public class ScoreLevelSystem : MonoBehaviour
 
 
 
+}
+
+[Serializable]
+public class RankData
+{
+    [Serializable]
+    public struct Profile
+    {
+        public string name;
+        public int age;
+    }
+    [Serializable]
+    public struct RankHolder
+    {
+        public string levelName;
+        public int score;
+        public Profile profile;
+        public ScoreLevelSystem.Ranks rank;
+    }
+
+    public List<RankHolder> rankList;
+
+    //Filters through profile name and levelname, and then orders by rank from top rank to bottom
+    public List<RankHolder> OrderRankByHighestScore(string levelName) //,string profileName
+    {
+        //Inserts full rank list 
+        List<RankHolder> rankListToReturn = rankList;
+
+        //Filters through levelnames
+        rankListToReturn = FilterByLevelName(rankListToReturn, levelName);
+
+        //Filters through profilenames
+        //rankListToReturn = FilterByProfile(rankListToReturn, profileName);
+
+        rankListToReturn.Sort((s1, s2) => s2.score.CompareTo(s1.score));
+
+        return rankListToReturn;
+    }
+
+    //Filters out by profile name
+    public List<RankHolder> FilterByProfile(List<RankHolder> rankList, string profileName)
+    {
+        List<RankHolder> rankListToReturn = new List<RankHolder>();
+
+        for (int i = 0; i < rankList.Count; i++)
+        {
+            if (rankList[i].profile.name == profileName)
+            {
+                rankListToReturn.Add(rankList[i]);
+            }
+        }
+
+
+        return rankListToReturn;
+    }
+    
+    //Filters out by levelname
+    public List<RankHolder> FilterByLevelName(List<RankHolder> rankList, string levelName)
+    {
+        List<RankHolder> rankListToReturn = new List<RankHolder>();
+
+        for (int i = 0; i < rankList.Count; i++)
+        {
+            if (rankList[i].levelName == levelName)
+            {
+                rankListToReturn.Add(rankList[i]);
+            }
+        }
+
+
+        return rankListToReturn;
+    }
 }
