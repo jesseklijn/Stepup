@@ -64,7 +64,7 @@ public class SceneSelector : MonoBehaviour
                 if (cursorPosition == 0)
                 {
                     PlaySFX(1);
-                    SceneTransition(1);
+                    SceneTransition(3);
                     //LongdistanceGamemode load
                 }
                 else if (cursorPosition == 1)
