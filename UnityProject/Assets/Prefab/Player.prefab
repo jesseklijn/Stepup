@@ -558,6 +558,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224479379599352616}
+  - component: {fileID: 114042276561776626}
   m_Layer: 5
   m_Name: HappyMeter
   m_TagString: Untagged
@@ -8408,6 +8409,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114042276561776626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122801946904016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de594647711e1d84fbd6b67ce645cae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goodFace: {fileID: 1485760598454514}
+  greatFace: {fileID: 1440917122984976}
+  goodText: {fileID: 1147734561639728}
+  greatText: {fileID: 1950289251065762}
 --- !u!114 &114052505591877560
 MonoBehaviour:
   m_ObjectHideFlags: 1
