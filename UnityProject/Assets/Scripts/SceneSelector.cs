@@ -28,11 +28,11 @@ public class SceneSelector : MonoBehaviour
     void Update()
     {
         //Fires once per 
-        if (Input.GetKeyDown(KeyCode.DownArrow) == true)
+        if (Input.GetKeyDown(KeyCode.DownArrow) == true || Input.GetKeyDown(KeyCode.RightArrow) == true)
         {
             UpdateCursor(1);
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) == true)
+        else if (Input.GetKeyDown(KeyCode.UpArrow) == true || Input.GetKeyDown(KeyCode.LeftArrow) == true)
         {
             UpdateCursor(0);
 
