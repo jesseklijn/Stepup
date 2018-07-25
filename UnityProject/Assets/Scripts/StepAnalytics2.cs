@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StepAnalytics2 : MonoBehaviour 
 {
 	private const float CompareIsZeroTolerance = 0.000000000001f;
 
+	private String sceneName;
 	private double _cv, _lcv, _rcv, _currentCV;
 	private List<double> TimeStamps = new List<double>();
 	private List<double> LeftTimeStamps = new List<double>();
@@ -18,6 +20,11 @@ public class StepAnalytics2 : MonoBehaviour
 	private List<string[]> rowData = new List<string[]>();
 
 	public double bpm;
+
+	void Start()
+	{
+		sceneName = SceneManager.GetActiveScene().name;
+	}
 
 	void OnApplicationQuit()
     {
@@ -97,10 +104,11 @@ public class StepAnalytics2 : MonoBehaviour
 		Debug.Log(TimeStamps);
 
         // Creating First row of titles manually..
-        string[] rowDataTemp = new string[3];
+        string[] rowDataTemp = new string[4];
         rowDataTemp[0] = "cv";
         rowDataTemp[1] = "lcv";
 		rowDataTemp[2] = "rcv";
+		rowDataTemp[3] = "SceneName";
         rowData.Add(rowDataTemp);
 
 		//ConvertToCV(TimeStamps);
@@ -112,10 +120,11 @@ public class StepAnalytics2 : MonoBehaviour
 		Debug.Log(_cv);
 
 
-		rowDataTemp = new string[3];
+		rowDataTemp = new string[4];
         rowDataTemp[0] = _cv.ToString();
 		rowDataTemp[1] = ""+_lcv;
 		rowDataTemp[2] = _rcv.ToString();
+		rowDataTemp[3] = sceneName;
 		rowData.Add(rowDataTemp);
 
         string[][] output = new string[rowData.Count][];
