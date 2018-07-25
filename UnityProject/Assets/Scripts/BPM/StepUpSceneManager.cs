@@ -48,8 +48,8 @@ public class StepUpSceneManager : BPMManager
         {
             {      
                 double m_cv = gameObject.GetComponent<StepAnalytics2>().GetCV();
-                gemsManager.AddGemToList(m_cv);
-                gemsManager.SpawnGem();               
+                gemsManager.AddGemToList();
+                gemsManager.SpawnGem(true);               
             }
         }
     }
@@ -96,13 +96,17 @@ public class StepUpSceneManager : BPMManager
         Debug.Log("Current CV is: " + _currentCV);
         hMeter.PopUpHappyMeter(_currentCV);
 
-        if(_currentCV < 1.5) //If CV is underneith the acceptable range
+        if(_currentCV < 0.5f) //If CV is underneith the acceptable range
         {
             //gemsManager spawn pickup-able gem
+            gemsManager.AddGemToList();
+            gemsManager.SpawnGem(true);
         }
         else
         {
             //gemsManager spawn dropping gem
+            gemsManager.AddGemToList();
+            gemsManager.SpawnGem(false);
         }
     }
 
@@ -135,7 +139,7 @@ public class StepUpSceneManager : BPMManager
             current_BPM -= _BPM_DROP;
 
         }
-            RefreshGems();
+            //RefreshGems();
         movementScript.inputIsGiven = true;
     }
 

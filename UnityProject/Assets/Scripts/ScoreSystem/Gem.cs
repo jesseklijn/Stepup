@@ -24,22 +24,42 @@ public class Gem : ScoreItem
 
     public GameObject scoreTextPrefab;
     public GameObject scoreTextPrefabEventParent;
+
+    public bool pickupAble;
+    private GemAnimation anim;
+
     void Start()
     {
+        anim = GetComponent<GemAnimation>();
         eventGameObject = GameObject.FindGameObjectWithTag("EventsObjects");
         scoreTextPrefabEventParent = GameObject.FindGameObjectWithTag("Canvas");
         scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator Animate()
     {
+        if(pickupAble)
+        {
+            Destroy();
+        }
+        else
+        {
+            anim.OnGemFall();
+            yield return new WaitForSeconds(3f);
+            //Destroy();
+        }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        StartCoroutine(Animate());
+        //Destroy();
+       
     }
 
     public override void Destroy()
     {
-
 
         //Display particle
         //onDeath.SetActive(true);

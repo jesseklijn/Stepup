@@ -6,39 +6,54 @@ public class GemsManager : MonoBehaviour
 {
 	public GameObject ruby, sapphire, diamond;
 	public List<GameObject> gemsList = new List<GameObject>();
+	public GameObject player;
 
-	private Vector3 startPos = new Vector3(-5.19311f+5.003111f, -2.59837f+2.560376f, -1.5f);
+	private Vector3 spawnPos;
 
 	void Start () 
 	{
-		gemsList.Add(ruby);
-		SpawnGem();
-		gemsList.Add(sapphire);
-		SpawnGem();
+		// gemsList.Add(ruby);
+		// SpawnGem();
+		// gemsList.Add(sapphire);
+		// SpawnGem();
+		spawnPos = new Vector3(-5.19311f+5.003111f, -2.59837f+2.560376f, player.transform.position.z + 3);
 		gemsList.Add(diamond);
-		SpawnGem();
+		SpawnGem(true);
 	}
 
-	public void AddGemToList(double cv)
+	public void AddGemToList() //give the CV as an argument for different types of gems.
 	{
-		if(cv >= 1)
+		spawnPos = new Vector3(-5.19311f+5.003111f, player.transform.position.y, player.transform.position.z + 8);
+		gemsList.Add(diamond);
+
+		// if(cv >= 1)
+		// {
+		// 	gemsList.Add(ruby);
+		// }
+		// else if(cv <= 0.6)
+		// {
+		// 	gemsList.Add(diamond);
+		// }
+		// else
+		// {
+		// 	gemsList.Add(sapphire);
+		// }
+	}
+
+	public void SpawnGem(bool _pickupAble)
+	{
+		int i = gemsList.Count-1;
+		gemsList[i].GetComponent<Gem>().pickupAble = _pickupAble;
+
+		if(!_pickupAble)
 		{
-			gemsList.Add(ruby);
-		}
-		else if(cv <= 0.6)
-		{
-			gemsList.Add(diamond);
+			gemsList[i].GetComponent<BoxCollider>().center = new Vector3(0, 0.05268659f, -0.6f);
 		}
 		else
 		{
-			gemsList.Add(sapphire);
+			gemsList[i].GetComponent<BoxCollider>().center = new Vector3(0, 0.05268659f, -0.18f);
 		}
-	}
-
-	public void SpawnGem()
-	{
-		int i = gemsList.Count-1;
-		Instantiate(gemsList[i], new Vector3(startPos.x, startPos.y, startPos.z + (1.5f*i)), Quaternion.identity);
+		Instantiate(gemsList[i], new Vector3(spawnPos.x, spawnPos.y, spawnPos.z), Quaternion.identity);
 	}
 	
 	

@@ -6,15 +6,16 @@ public class GemAnimation : MonoBehaviour
 {
 
     public Vector3[] fallPoints;
-    public GameObject gemObject;
+    //public GameObject gemObject;
     public int iterator = 0;
+    public float falltime;
 
     private int fallDirection = 1;
     // Use this for initialization
     void Start()
     {
         //Start falling gem
-        OnGemFall();
+        //OnGemFall();
         if (Random.Range(0, 10) > 5)
         {
             fallDirection = -fallDirection;
@@ -22,11 +23,11 @@ public class GemAnimation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnGemFall()
+    public void OnGemFall()
     {
 
         //start falling
-        StartCoroutine(FallGem(0, 0.3F));
+        StartCoroutine(FallGem(0, falltime));
         StartCoroutine(WobbleGem(0.2F, 35));
 
     }

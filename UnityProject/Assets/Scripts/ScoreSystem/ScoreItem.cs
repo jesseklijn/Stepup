@@ -22,11 +22,4 @@ public class ScoreItem : MonoBehaviour {
         //particle effect
         //play particle
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-      
-        Destroy();
-       
-    }
 }
