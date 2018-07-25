@@ -75,7 +75,7 @@ public class ScoreLevelSystem : MonoBehaviour
        
         filteredRank.rankList = rankData.OrderRankByHighestScore("cavestage");
         UpdateDisplay();
-        StartCoroutine(MoveTowardsDestination(transitionTime, startFinishPos, endFinishPos, mainOverviewRect, true, false));
+        StartCoroutine(MoveTowardsDestination(transitionTime, startFinishPos, endFinishPos, mainOverviewRect, true, false, true));
     }
 
     public enum Ranks
@@ -162,7 +162,7 @@ public class ScoreLevelSystem : MonoBehaviour
     public void AnimateRank()
     {
         StartCoroutine(Fade(fadeTime, startAlpha, endAlpha, rankDisplay));
-        StartCoroutine(MoveTowardsDestination(movementTime, startPosition, endPosition, rankRect, false, false));
+        StartCoroutine(MoveTowardsDestination(movementTime, startPosition, endPosition, rankRect, false, false, false));
 
     }
 
@@ -187,7 +187,7 @@ public class ScoreLevelSystem : MonoBehaviour
         }
 
     }
-    public IEnumerator MoveTowardsDestination(float time, Vector3 startValue, Vector3 endValue, RectTransform toMove, bool initial, bool endTheScene)
+    public IEnumerator MoveTowardsDestination(float time, Vector3 startValue, Vector3 endValue, RectTransform toMove, bool initial, bool endTheScene, bool cvMetreActivate)
     {
 
 
@@ -209,6 +209,14 @@ public class ScoreLevelSystem : MonoBehaviour
         }
 
         //TODO: Add CV METRE HERE
+        if (cvMetreActivate == true)
+        {
+            
+            //TODO: ADD CV METHOD CALLING HERE
+            //TODO: CHANGE TIMER TO WHATEVER TIME YOU THINK IS APPROPIATE
+            Debug.Log("CV event fired");
+            StartCoroutine(Timer(0, 5));
+        }
 
         if (initial == true)
         {
@@ -279,7 +287,7 @@ public class ScoreLevelSystem : MonoBehaviour
             else if (hasShownHighscore == false)
             {
                 //Show highscore (Do animation)
-                StartCoroutine(MoveTowardsDestination(transitionTime, startOverviewPos, endOverviewPos, mainOverviewRect, false, false));
+                StartCoroutine(MoveTowardsDestination(transitionTime, startOverviewPos, endOverviewPos, mainOverviewRect, false, false,false));
                 //Set to true
                 hasShownHighscore = true;
                 //Restart this timer
@@ -290,7 +298,7 @@ public class ScoreLevelSystem : MonoBehaviour
             else
             {
                 //Start scene transition
-                StartCoroutine(MoveTowardsDestination(transitionTime, startEndScenePos, endEndScenePos, mainOverviewRect, false, true));
+                StartCoroutine(MoveTowardsDestination(transitionTime, startEndScenePos, endEndScenePos, mainOverviewRect, false, true, false));
 
             }
         }
