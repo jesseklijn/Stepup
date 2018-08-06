@@ -23,6 +23,20 @@ public class AudioController : MonoBehaviour
         sfxVolume = 1; // TEMP
     }
 
+    public void PlayVoice(bool perfect)
+    {
+        if(perfect)
+        {
+            string voiceName = "Great" + Random.Range(1, 6);
+            PlaySFX(voiceName, gameObject, false, false);
+        }
+        else
+        {
+            string voiceName = "Good" + Random.Range(1, 4);
+            PlaySFX(voiceName, gameObject, false, false);
+        }
+    }
+
     public void PlaySFX(string song, GameObject source, bool followObject = false, bool pitched = false)
     {
         AudioSource toPlay = null;

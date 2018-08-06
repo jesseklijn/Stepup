@@ -70,6 +70,13 @@ public class StepUpSceneManager : BPMManager
         }
         
     }
+
+    public void CancelInvokes()
+    {
+        CancelInvoke("NextGemCheck");
+        CancelInvoke("ResetRecentStepsList");
+    }
+
     public void StartCountDown()
     {
         if(Singleton.cinematicController.introDone && !Singleton.cinematicController.turnDoing)

@@ -30202,10 +30202,19 @@ MonoBehaviour:
   - {fileID: 82000012806207728, guid: b35267919d9c13e46af81bf8efa4e658, type: 2}
   - {fileID: 82000012806207728, guid: a0279d9195615ec4a8c02a870ded306b, type: 2}
   - {fileID: 82000012806207728, guid: 724ce298be2e8c4459af36db26552e69, type: 2}
+  - {fileID: 82000012806207728, guid: 7ed3a07b352e0bd4f880bcedc4ba6704, type: 2}
+  - {fileID: 82000012806207728, guid: 1c3d67601eabc004d9258c70d043de98, type: 2}
+  - {fileID: 82000012806207728, guid: 55796f0abc5b11c48a8dfbf6f1acbae6, type: 2}
+  - {fileID: 82000012806207728, guid: 4d1a36e02e3287b4ea0e87a02c7c5f73, type: 2}
+  - {fileID: 82000012806207728, guid: 22e38323e26466d459f42025c1c97100, type: 2}
+  - {fileID: 82000012806207728, guid: ef17f8632d9655a45a38732e09ea981d, type: 2}
+  - {fileID: 82000012806207728, guid: b08eaacb5511a8142b1f030a9724a30a, type: 2}
+  - {fileID: 82000012806207728, guid: 27092082948d8e84b8c29b5140ae06c3, type: 2}
+  - {fileID: 82000012806207728, guid: bd26bbac17ad9b04eb1cfa7776d5db75, type: 2}
   allBgm: []
   bgmVolume: 0
   sfxVolume: 0
-  timeline: {fileID: 0}
+  timeline: {fileID: 609299572}
 --- !u!95 &609299571
 Animator:
   serializedVersion: 3

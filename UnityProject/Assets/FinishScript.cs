@@ -13,6 +13,7 @@ public class FinishScript : MonoBehaviour {
 	{
 		if(other.tag == "Player")
 		{
+			sceneManager.CancelInvokes();
 			gameObject.GetComponentInChildren<ParticleSystem>().Play();
 			Singleton.audioController.PlaySFX("Yay", gameObject, false, false);
 			sceneManager.gameFinished = true;

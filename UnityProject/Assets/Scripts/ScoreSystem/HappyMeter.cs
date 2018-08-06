@@ -37,6 +37,8 @@ public class HappyMeter : MonoBehaviour
 			greatFace.active = false;
 			goodText.active = true;
 			greatText.active = false;
+			
+			Singleton.audioController.PlayVoice(false);
 
 			yield return new WaitForSeconds(3f);
 			Reset();
@@ -48,6 +50,8 @@ public class HappyMeter : MonoBehaviour
 			greatFace.active = true;
 			goodText.active = false;
 			greatText.active = true;
+
+			Singleton.audioController.PlayVoice(true);
 
 			yield return new WaitForSeconds(3f);
 			Reset();

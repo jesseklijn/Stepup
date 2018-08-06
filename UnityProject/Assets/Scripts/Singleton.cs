@@ -24,7 +24,7 @@ public class Singleton : MonoBehaviour
         {
             _audioController = GetComponentInChildren<AudioController>();
             _audioController.transform.SetParent(null);
-            DontDestroyOnLoad(_audioController.gameObject);
+            //DontDestroyOnLoad(_audioController.gameObject);
         }
         else
         {
@@ -36,7 +36,7 @@ public class Singleton : MonoBehaviour
         {
             _cinematicController = GetComponentInChildren<CinematicController>();
             _cinematicController.transform.SetParent(null);
-            DontDestroyOnLoad(_cinematicController.gameObject);
+            //DontDestroyOnLoad(_cinematicController.gameObject);
         }
         else
         {
