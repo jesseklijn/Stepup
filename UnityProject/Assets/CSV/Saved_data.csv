@@ -109,3 +109,9 @@ cv,lcv,rcv,SceneName
 cv,lcv,rcv,SceneName
 0.901607554725345,0.893098657010413,0.910116452440277,RiverStage
 
+cv,lcv,rcv,SceneName
+0.470159875732777,0.940319751465554,0,CaveStage
+
+cv,lcv,rcv,SceneName
+0.549568160798522,0,1.09913632159704,CaveStage
+
