@@ -20,6 +20,7 @@ public class StepAnalytics2 : MonoBehaviour
 	private List<string[]> rowData = new List<string[]>();
 
 	public double bpm;
+	public float happyMeterInterval;
 
 	void Start()
 	{
@@ -99,16 +100,34 @@ public class StepAnalytics2 : MonoBehaviour
 		return _cv;
 	}
 
+	public bool IsAmountOfstepsAcceptable()
+	{
+		double _beatsPerInterval = bpm/60 * happyMeterInterval;
+		float _beatsMargin = 2;
+
+		if(RecentTimeStamps.Count <= _beatsPerInterval + _beatsMargin &&  RecentTimeStamps.Count >= _beatsPerInterval - _beatsMargin)
+		{
+			Debug.Log("Acceptable because; " + RecentTimeStamps.Count + "is between the margins of: " + _beatsPerInterval);
+			return true;
+		}
+		else
+		{
+			Debug.Log("NOT Acceptable because; " + RecentTimeStamps.Count + "is NOT between the margins of: " + _beatsPerInterval);
+			return false;
+		}
+	}
+
 	public void Save(){
 
-		Debug.Log(TimeStamps);
+		Debug.Log(TimeStamps.Count);
 
         // Creating First row of titles manually..
-        string[] rowDataTemp = new string[4];
+        string[] rowDataTemp = new string[5];
         rowDataTemp[0] = "cv";
         rowDataTemp[1] = "lcv";
 		rowDataTemp[2] = "rcv";
 		rowDataTemp[3] = "SceneName";
+		rowDataTemp[4] = "StepsAmount";
         rowData.Add(rowDataTemp);
 
 		//ConvertToCV(TimeStamps);
@@ -120,11 +139,12 @@ public class StepAnalytics2 : MonoBehaviour
 		Debug.Log(_cv);
 
 
-		rowDataTemp = new string[4];
+		rowDataTemp = new string[5];
         rowDataTemp[0] = _cv.ToString();
 		rowDataTemp[1] = ""+_lcv;
 		rowDataTemp[2] = _rcv.ToString();
 		rowDataTemp[3] = sceneName;
+		rowDataTemp[4] = TimeStamps.Count.ToString();
 		rowData.Add(rowDataTemp);
 
         string[][] output = new string[rowData.Count][];

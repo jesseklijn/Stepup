@@ -5,7 +5,7 @@ using UnityEngine;
 public class HappyMeter : MonoBehaviour 
 {
 	public GameObject goodFace, greatFace, goodText, greatText;
-	private double currentCV;
+	private bool acceptability;
 
 	// Use this for initialization
 	void Start () 
@@ -22,16 +22,16 @@ public class HappyMeter : MonoBehaviour
 	}
 
 	
-	public void PopUpHappyMeter(double _CV) 
+	public void PopUpHappyMeter(bool _acceptable) 
 	{
-		currentCV = _CV;
+		acceptability = _acceptable;
 		StartCoroutine(VisualizeMeter());
 	}
 
 	public IEnumerator VisualizeMeter() 
 	{
 
-		if(currentCV > 0.7f)
+		if(!acceptability) //GOOD
 		{
 			goodFace.active = true;
 			greatFace.active = false;
@@ -44,7 +44,7 @@ public class HappyMeter : MonoBehaviour
 			Reset();
 
 		}
-		else if(currentCV <= 0.7f)
+		else if(acceptability) //GREAT
 		{
 			goodFace.active = false;
 			greatFace.active = true;
