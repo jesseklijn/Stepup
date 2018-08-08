@@ -91,7 +91,7 @@ public class SceneSelector : MonoBehaviour
     public void SceneTransition(int sceneBuildIndex)
     {
         //Scene scene = SceneManager.GetSceneByName(nameOfScene);
-        SceneManager.LoadScene(sceneBuildIndex);
+        SceneManager.LoadScene("LevelSelector");
     }
 
     //Pushes cursor on position based in index [0-1]

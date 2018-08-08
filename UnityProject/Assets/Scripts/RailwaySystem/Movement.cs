@@ -46,6 +46,7 @@ public class Movement : MonoBehaviour
     /*public GameObject FindShunObject;
     AniCTR aniCTR;
 
+     
 
     void Start() //byTanaka
     {
@@ -55,6 +56,15 @@ public class Movement : MonoBehaviour
         aniCTR = AnimatedObject.GetComponent<AniCTR>();
     }*/
 
+    private void Awake()
+    {
+        //Check for soundtrack, stop it
+        if (GameObject.Find("Soundtrack") != null)
+        {
+            Destroy(GameObject.Find("Soundtrack"));
+        }
+
+    }   
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) == true && Singleton.cinematicController.introDone)
