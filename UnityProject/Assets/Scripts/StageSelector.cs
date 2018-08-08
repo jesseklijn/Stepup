@@ -11,10 +11,21 @@ public class StageSelector : MonoBehaviour
     public string[] sceneNames;
     private int currentStageSelect = 0;
 
+    //tanaka 
+    public GameObject Shun_Step;
+    public GameObject Foot_Step;
+    private Animator aniStep;
+    private Animator footStep;
+
+
     // Use this for initialization
     void Start()
     {
         ChangeAlpha(currentStageSelect);
+
+        //tanaka
+        aniStep = Shun_Step.GetComponent<Animator>();
+        footStep = Foot_Step.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -45,6 +56,7 @@ public class StageSelector : MonoBehaviour
             GoToRandomStage();
         }
 
+        ChangeBpmAnimation();//tanaka
     }
 
     void GoToStage(int i)
@@ -80,5 +92,29 @@ public class StageSelector : MonoBehaviour
             }
         }
 
+    }
+
+    //tanaka
+    void ChangeBpmAnimation()
+    {
+        if(currentStageSelect == 0 || currentStageSelect == 2) //bpm 90
+        {
+            aniStep.SetFloat("Speed", 1.65f);
+            footStep.SetFloat("FootSpeed", 0.13f);
+
+        }
+
+        if (currentStageSelect == 1 || currentStageSelect == 4) // bpm130
+        {
+            aniStep.SetFloat("Speed", 2.36f);
+            footStep.SetFloat("FootSpeed", 0.205f);
+        }
+
+
+        if (currentStageSelect == 3)//bpm 110
+        {
+            aniStep.SetFloat("Speed", 2.03f); 
+            footStep.SetFloat("FootSpeed", 0.167f);
+        }
     }
 }
