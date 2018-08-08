@@ -99,11 +99,13 @@ public class StepUpSceneManager : BPMManager
 
     public void NextGemCheck()
 	{
-        double _currentCV = movementScript.stepAnalytics.GetCurrentCV();
-        Debug.Log("Current CV is: " + _currentCV);
-        hMeter.PopUpHappyMeter(_currentCV);
+        movementScript.stepAnalytics.happyMeterInterval = gemInterval; //Set the gem interval inside the Analytics script before checking for the BPM;
+        //double _currentCV = movementScript.stepAnalytics.GetCurrentCV();
+        bool _correctBPM = movementScript.stepAnalytics.IsAmountOfstepsAcceptable();
+        //Debug.Log("Current CV is: " + _currentCV);
+        hMeter.PopUpHappyMeter(_correctBPM);
 
-        if(_currentCV < 0.5f) //If CV is underneith the acceptable range
+        if(_correctBPM) //GREAT
         {
             //gemsManager spawn pickup-able gem
             gemsManager.AddGemToList();
