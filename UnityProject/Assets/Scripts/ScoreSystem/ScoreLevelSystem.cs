@@ -226,7 +226,7 @@ public class ScoreLevelSystem : MonoBehaviour
         
         if (endTheScene == true)
         {
-            int randomScene = (int) UnityEngine.Random.Range(0, 3);
+            int randomScene = (int) UnityEngine.Random.Range(0, 4);
             controller.timeline.Stop();
             SceneManager.LoadScene(randomScene);
 
