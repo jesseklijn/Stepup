@@ -42,7 +42,7 @@ public class StageSelector : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            GoToStage(currentStageSelect);
+            GoToRandomStage();
         }
 
     }
@@ -51,7 +51,10 @@ public class StageSelector : MonoBehaviour
     {
        SceneManager.LoadScene(sceneNames[i]);
     }
-
+    void GoToRandomStage()
+    {
+        SceneManager.LoadScene(sceneNames[Random.Range(0,sceneNames.Length-1)]);
+    }
     bool ChangeCurrentSelect(int i, int increment)
     {
         if (i + increment <= images.Length - 1 && i + increment >= 0)
