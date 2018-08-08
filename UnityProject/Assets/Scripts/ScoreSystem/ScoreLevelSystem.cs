@@ -96,7 +96,7 @@ public class ScoreLevelSystem : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/RankData"+SceneManager.GetActiveScene().name+".dat", FileMode.Open);
-            rankData = (RankData)bf.Deserialize(file);
+            //rankData = (RankData)bf.Deserialize(file);
             file.Close();
             Debug.Log(rankData.rankList.Count);
             return true;
@@ -226,8 +226,9 @@ public class ScoreLevelSystem : MonoBehaviour
         
         if (endTheScene == true)
         {
+            int randomScene = (int) UnityEngine.Random.Range(0, 3);
             controller.timeline.Stop();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(randomScene);
 
         }
         //Play particleSystem

@@ -23,6 +23,8 @@ public class FinishScript : MonoBehaviour {
             particles[0].Play();
             particles[1].Play();
 
+			gameObject.GetComponent<BoxCollider>().enabled = false;
+
         }
     }
 	
