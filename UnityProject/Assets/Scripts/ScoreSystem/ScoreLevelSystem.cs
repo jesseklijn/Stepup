@@ -92,10 +92,10 @@ public class ScoreLevelSystem : MonoBehaviour
     //Loads all data from save. If no data, datasheet will be created.
     public bool LoadRankData()
     {
-        if (File.Exists((Application.persistentDataPath + "/RankData.dat")))
+        if (File.Exists((Application.persistentDataPath + "/RankData"+SceneManager.GetActiveScene().name+".dat")))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/RankData.dat", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/RankData"+SceneManager.GetActiveScene().name+".dat", FileMode.Open);
             rankData = (RankData)bf.Deserialize(file);
             file.Close();
             Debug.Log(rankData.rankList.Count);
@@ -109,7 +109,7 @@ public class ScoreLevelSystem : MonoBehaviour
     public bool SaveRankData(string levelName)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/RankData.dat");
+        FileStream file = File.Create(Application.persistentDataPath + "/RankData" + SceneManager.GetActiveScene().name + ".dat");
         RankData.RankHolder rankHolder = new RankData.RankHolder();
         rankHolder.levelName = levelName;
         rankHolder.score = scoreSystem.inGameScore;
