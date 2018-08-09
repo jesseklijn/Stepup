@@ -22747,6 +22747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChildObject: {fileID: 923412420}
   StepMachine: {fileID: 100016, guid: 6ccf66bfccfe3484499ce5fd9b5646e1, type: 3}
+  StepSpeed: 1.65
   sceneManager: {fileID: 147405595}
 --- !u!95 &479011532
 Animator:

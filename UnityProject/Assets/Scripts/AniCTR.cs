@@ -14,7 +14,9 @@ public class AniCTR : MonoBehaviour
     public GameObject StepMachine; //StepMachine Input
 
     private GameObject EffectObject; //gamestart effect
-    private GameObject StepAnimatedMachine; // step machine of minecart
+    //private GameObject StepAnimatedMachine; // step machine of minecart
+    
+    public float StepSpeed = 1.0f; //if bpmchanged this value is changed
 
     public StepUpSceneManager sceneManager;
 
@@ -22,8 +24,8 @@ public class AniCTR : MonoBehaviour
     void Start()
     {
         anim = this.GetComponent<Animator>();
-        StepAnimatedMachine = GameObject.Find(StepMachine.name);
-        animStepMachine = StepAnimatedMachine.GetComponent<Animator>();
+        //StepAnimatedMachine = GameObject.Find(StepMachine.name);
+        animStepMachine = StepMachine.GetComponent<Animator>();
         EffectObject = gameObject.transform.Find(ChildObject.name).gameObject;
         EffectObject.SetActive(false);
            
@@ -41,10 +43,10 @@ public class AniCTR : MonoBehaviour
                     GameStart();
                 }
 
-                if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
+                /*if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
                 {
                     StartCoroutine("RightStep");
-                }
+                }*/
             }
         }
 
@@ -58,11 +60,21 @@ public class AniCTR : MonoBehaviour
                     GameStart();
                 }
 
-                if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
+                /*if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
                 {
                     StartCoroutine("LeftStep");
                 }
+                */
             }
+        }
+
+       
+            if (sceneManager.gameStarted == true && sceneManager.gameFinished == false)
+            {
+            anim.SetFloat("StepSpeed", StepSpeed);
+            anim.SetBool("Step", true);
+
+                StepMachineAnimation();
         }
 
         if (sceneManager.gameFinished == true)
@@ -91,6 +103,14 @@ public class AniCTR : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         animStepMachine.SetBool("Left", true);
         animStepMachine.SetBool("Right", false);
+    }
+
+     void StepMachineAnimation()
+    {
+        animStepMachine.SetFloat("MachineStepSpeed", StepSpeed);
+        animStepMachine.SetTrigger("StepMachineStep");
+        
+
     }
 
     public void GameStart()

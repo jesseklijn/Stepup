@@ -160,7 +160,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.19181557, y: 0.108400844, z: 0.19181556}
-  m_Center: {x: 0, y: 0.05268659, z: -0.18}
+  m_Center: {x: 0, y: 0.05268659, z: -0.6}
 --- !u!82 &82368034362551776
 AudioSource:
   m_ObjectHideFlags: 1
@@ -292,7 +292,7 @@ MonoBehaviour:
   scoreTextPrefab: {fileID: 1720349902932314, guid: aee0034c2fbbbe641b04de337b2edd45,
     type: 2}
   scoreTextPrefabEventParent: {fileID: 0}
-  pickupAble: 1
+  pickupAble: 0
 --- !u!114 &114609961273903468
 MonoBehaviour:
   m_ObjectHideFlags: 1

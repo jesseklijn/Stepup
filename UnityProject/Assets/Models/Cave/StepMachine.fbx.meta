@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 6ccf66bfccfe3484499ce5fd9b5646e1
-timeCreated: 1525582349
-licenseType: Free
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: L_Center
     100002: L_hand1
@@ -28,6 +26,7 @@ ModelImporter:
     7400002: Right
     7400004: Take 001 (2)
     7400006: Take 001 (3)
+    7400008: Stepmachine_step
     9500000: //RootNode
     13700000: minecart_part
   externalObjects:
@@ -35,7 +34,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: minecart_parts_material
-    second: {fileID: 2100000, guid: bfe74e7901c8dd94e9cadaf6577b0ec0, type: 2}
+    second: {fileID: 2100000, guid: c57520fbe60682f4ea4ef5753fb9e9b4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,6 +53,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -118,6 +118,34 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Stepmachine_step
+      takeName: Take 001
+      firstFrame: 15
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -134,11 +162,15 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.001
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
