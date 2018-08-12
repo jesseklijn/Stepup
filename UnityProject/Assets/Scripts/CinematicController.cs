@@ -55,11 +55,13 @@ public class CinematicController : MonoBehaviour
 		{
 			if(i == camNumber)
 			{
-				camList[i].Priority = 10;
+				camList[i].gameObject.SetActive(true);
+				//camList[i].Priority = 10;
 			}
 			else
 			{
-				camList[i].Priority = 0;
+				camList[i].gameObject.SetActive(false);
+				//camList[i].Priority = 0;
 			}
 		}
 	}
