@@ -15,7 +15,7 @@ public class FinishScript : MonoBehaviour {
 		{
 			sceneManager.CancelInvokes();
 			gameObject.GetComponentInChildren<ParticleSystem>().Play();
-			Singleton.audioController.PlaySFX("Yay", gameObject, false, false);
+			Singleton.audioController.PlaySFX("Goal", gameObject, false, false);
 			sceneManager.gameFinished = true;
 			stepAnalytics.Save();
 

@@ -11,11 +11,18 @@ public class CountdownPlayer : MonoBehaviour
     public StepUpSceneManager sceneManager;
     public string[] countdown;
     public Text display;
+    bool delay = true;
 
     public bool isCounting = false;
 
     public IEnumerator CountDownFrom(int startFrom, AudioClip[] Clips, float timePerClip)
     {
+        if(delay)
+        {
+            yield return new WaitForSeconds(1f);
+            delay = false;
+        }
+
         if (isCounting == false)
         {
             isCounting = true;
