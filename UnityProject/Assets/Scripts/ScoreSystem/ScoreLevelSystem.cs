@@ -62,7 +62,7 @@ public class ScoreLevelSystem : MonoBehaviour
     public AudioController controller;
 
     //RankData
-    
+
     public RankData rankData;
     public RankData filteredRank;
     public void OnEnable()
@@ -72,7 +72,7 @@ public class ScoreLevelSystem : MonoBehaviour
         rankData.rankList = new List<RankData.RankHolder>();
         LoadRankData();
         SaveRankData("cavestage");
-       
+
         filteredRank.rankList = rankData.OrderRankByHighestScore("cavestage");
         UpdateDisplay();
         StartCoroutine(MoveTowardsDestination(transitionTime, startFinishPos, endFinishPos, mainOverviewRect, true, false, true));
@@ -92,11 +92,13 @@ public class ScoreLevelSystem : MonoBehaviour
     //Loads all data from save. If no data, datasheet will be created.
     public bool LoadRankData()
     {
-        if (File.Exists((Application.persistentDataPath + "/RankData"+SceneManager.GetActiveScene().name+".dat")))
+        if (File.Exists((Application.persistentDataPath + "/RankData" + SceneManager.GetActiveScene().name + ".dat")))
         {
+
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/RankData"+SceneManager.GetActiveScene().name+".dat", FileMode.Open);
-            //rankData = (RankData)bf.Deserialize(file);
+            Debug.Log("File exists, opening file..");
+            FileStream file = File.Open(Application.persistentDataPath + "/RankData" + SceneManager.GetActiveScene().name + ".dat", FileMode.Open);
+            rankData = (RankData)bf.Deserialize(file);
             file.Close();
             Debug.Log(rankData.rankList.Count);
             return true;
@@ -114,7 +116,7 @@ public class ScoreLevelSystem : MonoBehaviour
         rankHolder.levelName = levelName;
         rankHolder.score = scoreSystem.inGameScore;
         rankData.rankList.Add(rankHolder);
-        bf.Serialize(file,rankData);
+        bf.Serialize(file, rankData);
         file.Close();
 
         return true;
@@ -125,9 +127,50 @@ public class ScoreLevelSystem : MonoBehaviour
     //Determines rank from 1st to 5th rank based on score
     public Ranks DetermineRank()
     {
+        int placement = 0;
+        //If rank 1 is equal to ingamescore
+        if (int.Parse(rankTexts[0].text) == scoreSystem.inGameScore)
+        {
+            return Ranks.First;
+        }
+        else
+        {
+            for (int i = 0; i < rankTexts.Length; i++)
+            {
+                if (rankTexts[i].text.Contains("-------") == false)
+                {
+                    if (int.Parse(rankTexts[i].text) > scoreSystem.inGameScore)
+                    {
+                        placement++;
+                    }
+                }
+            }
+        }
 
-        //Compare scores and determine
-        return Ranks.First;
+        //Goes through placements
+        switch (placement)
+        {
+            case 0:
+                return Ranks.First;
+                break;
+            case 1:
+                return Ranks.Second;
+                break;
+            case 2:
+                return Ranks.Third;
+                break;
+            case 3:
+                return Ranks.Fourth;
+                break;
+            case 4:
+                return Ranks.Fifth;
+                break;
+            case 5:
+                return Ranks.Fifth;
+                break;
+        }
+        //if nothing happens just return lowest rank.
+        return Ranks.Fifth;
     }
 
     //Changes the rank image
@@ -211,7 +254,7 @@ public class ScoreLevelSystem : MonoBehaviour
         //TODO: Add CV METRE HERE
         if (cvMetreActivate == true)
         {
-            
+
             //TODO: ADD CV METHOD CALLING HERE
             //TODO: CHANGE TIMER TO WHATEVER TIME YOU THINK IS APPROPIATE
             Debug.Log("CV event fired");
@@ -223,10 +266,10 @@ public class ScoreLevelSystem : MonoBehaviour
             AnimateRank();
             StartCoroutine(Timer(0, timeLimitOverview));
         }
-        
+
         if (endTheScene == true)
         {
-            int randomScene = (int) UnityEngine.Random.Range(0, 4);
+            int randomScene = (int)UnityEngine.Random.Range(0, 4);
             controller.timeline.Stop();
             SceneManager.LoadScene(randomScene);
 
@@ -250,16 +293,23 @@ public class ScoreLevelSystem : MonoBehaviour
         diamondDisplay.text = scoreSystem.diamondCount.ToString();
         diamondTotalScore.text = (scoreSystem.diamondCount * diamondScoreAmount).ToString() + " pts";
 
-        for (int i = 0; i < rankTexts.Length; i++)
+        if (rankTexts.Length != 0)
         {
-            if (rankData.rankList.Count > i)
+            for (int i = 0; i < rankTexts.Length; i++)
             {
-                rankTexts[i].text = filteredRank.rankList[i].score.ToString();
+                if (rankData.rankList.Count > i)
+                {
+                    rankTexts[i].text = filteredRank.rankList[i].score.ToString();
+                }
+                else
+                {
+                    rankTexts[i].text = "-------";
+                }
             }
-            else
-            {
-                rankTexts[i].text = "-------";
-            }
+        }
+        else
+        {
+            Debug.LogError("ADD RANK TEXTS TO INSPECTOR -> SCORELEVELSYSTEM");
         }
 
         DisplayRank(DetermineRank());
@@ -288,7 +338,7 @@ public class ScoreLevelSystem : MonoBehaviour
             else if (hasShownHighscore == false)
             {
                 //Show highscore (Do animation)
-                StartCoroutine(MoveTowardsDestination(transitionTime, startOverviewPos, endOverviewPos, mainOverviewRect, false, false,false));
+                StartCoroutine(MoveTowardsDestination(transitionTime, startOverviewPos, endOverviewPos, mainOverviewRect, false, false, false));
                 //Set to true
                 hasShownHighscore = true;
                 //Restart this timer
@@ -363,7 +413,7 @@ public class RankData
 
         return rankListToReturn;
     }
-    
+
     //Filters out by levelname
     public List<RankHolder> FilterByLevelName(List<RankHolder> rankList, string levelName)
     {
