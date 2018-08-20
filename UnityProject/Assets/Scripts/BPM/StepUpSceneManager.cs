@@ -14,6 +14,8 @@ public class StepUpSceneManager : BPMManager
     public int timeForTutorialToTurnOff = 3;
     public bool timerRunning = false;
 
+    public int gemStreak = 0;
+
     public float distanceFromStartToFinish = 0;
     public float CurrentProgressDistanceTraveled;
 
@@ -49,7 +51,7 @@ public class StepUpSceneManager : BPMManager
             {      
                 double m_cv = gameObject.GetComponent<StepAnalytics2>().GetCV();
                 gemsManager.AddGemToList();
-                gemsManager.SpawnGem(true);               
+                gemsManager.SpawnGem(true,gemStreak);               
             }
         }
     }
@@ -108,14 +110,18 @@ public class StepUpSceneManager : BPMManager
         if(_correctBPM) //GREAT
         {
             //gemsManager spawn pickup-able gem
+            gemStreak++;
             gemsManager.AddGemToList();
-            gemsManager.SpawnGem(true);
+            gemsManager.SpawnGem(true,gemStreak);
         }
         else
         {
             //gemsManager spawn dropping gem
+
+            //put gemstreak to 0 
+            gemStreak = 0;
             gemsManager.AddGemToList();
-            gemsManager.SpawnGem(false);
+            gemsManager.SpawnGem(false,gemStreak);
         }
     }
 

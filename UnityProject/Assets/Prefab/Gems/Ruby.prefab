@@ -188,7 +188,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.19181557, y: 0.108400844, z: 0.14875841}
-  m_Center: {x: 0, y: 0.052686583, z: -0.18}
+  m_Center: {x: 0, y: 0.05268659, z: -0.18}
 --- !u!82 &82690140373227558
 AudioSource:
   m_ObjectHideFlags: 1
@@ -295,8 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86cbb3af338f9d408589a4538060179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 5000
-  currentScore: 5000
+  score: 2000
+  currentScore: 2000
   scoreSystem: {fileID: 0}
   onDeath: {fileID: 0}
   gemType: 1
@@ -307,7 +307,7 @@ MonoBehaviour:
   scoreTextPrefab: {fileID: 1720349902932314, guid: aee0034c2fbbbe641b04de337b2edd45,
     type: 2}
   scoreTextPrefabEventParent: {fileID: 0}
-  pickupAble: 0
+  pickupAble: 1
 --- !u!114 &114330043373841616
 MonoBehaviour:
   m_ObjectHideFlags: 1

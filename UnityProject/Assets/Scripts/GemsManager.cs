@@ -17,14 +17,15 @@ public class GemsManager : MonoBehaviour
 		// gemsList.Add(sapphire);
 		// SpawnGem();
 		spawnPos = new Vector3(-5.19311f+5.003111f, -2.59837f+2.560376f, player.transform.position.z + 3);
-		gemsList.Add(diamond);
-		SpawnGem(true);
+	    gemsList.Add(sapphire);
+	    gemsList.Add(ruby);
+        gemsList.Add(diamond);
+		SpawnGem(true, 0);
 	}
 
 	public void AddGemToList() //give the CV as an argument for different types of gems.
 	{
 		spawnPos = new Vector3(-5.19311f+5.003111f, player.transform.position.y, player.transform.position.z + 8);
-		gemsList.Add(diamond);
 
 		// if(cv >= 1)
 		// {
@@ -40,9 +41,27 @@ public class GemsManager : MonoBehaviour
 		// }
 	}
 
-	public void SpawnGem(bool _pickupAble)
+	public void SpawnGem(bool _pickupAble, int streakNumber)
 	{
-		int i = gemsList.Count-1;
+	    int i = 0;
+
+        if (streakNumber >= 5)
+	    {
+            //diamond
+	        i = 2;
+        }
+        else if (streakNumber < 5 && streakNumber >= 2)
+	    {
+            //ruby
+	        i = 1;
+        }
+	    else
+	    {
+            //sapphire
+	        i = 0;
+        }
+
+
 		gemsList[i].GetComponent<Gem>().pickupAble = _pickupAble;
 
 		if(!_pickupAble)
