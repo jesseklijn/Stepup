@@ -9,6 +9,10 @@ TagManager:
   - AudioController
   - Canvas
   - ScoreSystem
+  - Hand
+  - Shun
+  - SceneManager
+  - EnemyObject
   layers:
   - Default
   - TransparentFX
