@@ -16,6 +16,10 @@ public class StepAnalytics2 : MonoBehaviour
 	private List<double> LeftTimeStamps = new List<double>();
 	private List<double> RightTimeStamps = new List<double>();
 	public List<double> RecentTimeStamps = new List<double>();
+	public List<double> RestTimes = new List<double>();
+	public List<double> RestFrames = new List<double>();
+	public List<double> LegAngles = new List<double>();
+	public float avgAngle;
 	//private List<string> feet = new List<string>();
 	private List<string[]> rowData = new List<string[]>();
 
@@ -32,6 +36,14 @@ public class StepAnalytics2 : MonoBehaviour
 		//Save();
         Debug.Log("Application ending after " + Time.time + " seconds");
     }
+
+	public void AddRest(float _restTime, float _restFrames)
+	{
+		RestTimes.Add(_restTime);
+		RestFrames.Add(_restFrames);
+
+		Debug.LogWarning("CURRENT REST WAS: " + _restTime + " seconds and " + _restFrames + " frames.");
+	}
 
 	public void AddTimeStamp (float time, string foot) 
 	{
@@ -122,12 +134,13 @@ public class StepAnalytics2 : MonoBehaviour
 		Debug.Log(TimeStamps.Count);
 
         // Creating First row of titles manually..
-        string[] rowDataTemp = new string[5];
+        string[] rowDataTemp = new string[6];
         rowDataTemp[0] = "cv";
         rowDataTemp[1] = "lcv";
 		rowDataTemp[2] = "rcv";
 		rowDataTemp[3] = "SceneName";
 		rowDataTemp[4] = "StepsAmount";
+		rowDataTemp[5] = "LegAngle";
         rowData.Add(rowDataTemp);
 
 		//ConvertToCV(TimeStamps);
@@ -138,13 +151,15 @@ public class StepAnalytics2 : MonoBehaviour
 		_cv = (_lcv + _rcv)/2;
 		Debug.Log(_cv);
 
+		CalculateAngle(RestTimes, RestFrames);
 
-		rowDataTemp = new string[5];
+		rowDataTemp = new string[6];
         rowDataTemp[0] = _cv.ToString();
 		rowDataTemp[1] = ""+_lcv;
 		rowDataTemp[2] = _rcv.ToString();
 		rowDataTemp[3] = sceneName;
 		rowDataTemp[4] = TimeStamps.Count.ToString();
+		rowDataTemp[5] = avgAngle.ToString();
 		rowData.Add(rowDataTemp);
 
         string[][] output = new string[rowData.Count][];
@@ -204,6 +219,27 @@ public class StepAnalytics2 : MonoBehaviour
         return Application.dataPath +"/"+"Saved_data.csv";
         #endif
     }
+
+	private void CalculateAngle(List<double> _RestTimes, List<double> _RestFrames)
+	{
+		for(int i = 0; i < _RestTimes.Count; i++)
+		{
+			float mHeight = 0; // the height in degree of the leg being raised.
+			float mRestTime = (float) _RestTimes[i]; //time that both feet are on the ground.
+			float mRestFrames = (float) _RestFrames[i]; //frames that both feet are on the ground.
+			float mBpm = (float) bpm;
+
+			mHeight = (180.262f-406.435f) * (mRestTime / mRestFrames) - 0.652f * mBpm;
+			LegAngles.Add(mHeight);
+		}
+
+		for(int j = 0; j < LegAngles.Count; j++)
+		{
+			avgAngle += (float) LegAngles[j];
+		}
+
+		avgAngle = avgAngle / LegAngles.Count;
+	}
 	
 }
 

@@ -42,6 +42,9 @@ public class Movement : MonoBehaviour
 
     public GameObject toMove;
 
+    private bool areResting = false;
+    private float restTime, restFrames;
+
     //Shun Animation setup byTanaka
     /*public GameObject FindShunObject;
     AniCTR aniCTR;
@@ -128,14 +131,32 @@ public class Movement : MonoBehaviour
                 
                 inputIsGiven = false;
             }
-            
         }
        
         if (sceneManager.gameStarted == true)
         {
             UpdateMovement();
         }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) == true && Input.GetKeyDown(KeyCode.RightArrow) == true && Singleton.cinematicController.introDone)
+        {
+            areResting = true;
+            restTime += Time.deltaTime;
+            restFrames += 1.0f / Time.deltaTime;
+        }
+
+        if(Input.GetKeyUp(KeyCode.RightArrow) == true || Input.GetKeyUp(KeyCode.RightArrow) == true)
+        {
+            if(areResting)
+            {
+                stepAnalytics.AddRest(restTime, restFrames);
+                restTime = 0;
+                restFrames = 0;
+                areResting = false;
+            }
+        }
     }
+
 
     public void DisplayShoe()
     {
