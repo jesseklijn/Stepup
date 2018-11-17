@@ -17,13 +17,13 @@ public class ScoreLevelSystem : MonoBehaviour
     public RectTransform mainOverviewRect;
     public float transitionTime = 2.5F;
     public Vector2 startOverviewPos = new Vector2(0, -206);
-    public Vector2 endOverviewPos = new Vector2(0, 226);
+    public Vector2 endOverviewPos = new Vector2(0, 240);
 
     public Vector2 startFinishPos = new Vector2(0, -206);
-    public Vector2 endFinishPos = new Vector2(0, 226);
+    public Vector2 endFinishPos = new Vector2(0, 240);
 
     public Vector2 startEndScenePos = new Vector2(0, -206);
-    public Vector2 endEndScenePos = new Vector2(0, 226);
+    public Vector2 endEndScenePos = new Vector2(0, 240);
 
     public int timeLimitOverview = 10;
     public int timeLimitHighscore = 10;
@@ -43,7 +43,8 @@ public class ScoreLevelSystem : MonoBehaviour
 
     //HighscoreOverview
     public Text[] rankDisplays;
-
+    public Vector2[] yourRankPositionVector2s;
+    public RectTransform yourRankGameObject;
     //ScoreSystem
     public ScoreSystem scoreSystem;
 
@@ -166,6 +167,9 @@ public class ScoreLevelSystem : MonoBehaviour
                 return Ranks.Fifth;
                 break;
             case 5:
+                return Ranks.Fifth;
+                break;
+            case 6:
                 return Ranks.Fifth;
                 break;
         }
@@ -300,6 +304,15 @@ public class ScoreLevelSystem : MonoBehaviour
                 if (rankData.rankList.Count > i)
                 {
                     rankTexts[i].text = filteredRank.rankList[i].score.ToString();
+                    if (rankTexts[i].text == scoreSystem.inGameScore.ToString())
+                    {
+                        rankTexts[i].GetComponent<Outline>().effectColor = new Color(0.9F, 0.28F, 0.01F);
+                        yourRankGameObject.anchoredPosition = yourRankPositionVector2s[i];
+                        if (yourRankGameObject.gameObject.activeSelf == false)
+                        {
+                            yourRankGameObject.gameObject.SetActive(true);
+                        }
+                    }
                 }
                 else
                 {
