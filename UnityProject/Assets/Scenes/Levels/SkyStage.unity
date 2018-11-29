@@ -658,6 +658,10 @@ Prefab:
       propertyPath: inGameScore
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1011750163991532, guid: 56d3d2bf973b8964c80c09ae82278e0d, type: 2}
+      propertyPath: m_TagString
+      value: SceneManager
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114505315831031146, guid: 56d3d2bf973b8964c80c09ae82278e0d, type: 2}
     - {fileID: 114176526698569546, guid: 56d3d2bf973b8964c80c09ae82278e0d, type: 2}
@@ -40858,6 +40862,10 @@ Prefab:
       propertyPath: sceneManager
       value: 
       objectReference: {fileID: 147405595}
+    - target: {fileID: 1014110417827484, guid: 95e9757a50a88124f808a97d44a9055e, type: 2}
+      propertyPath: m_TagString
+      value: Shun
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95e9757a50a88124f808a97d44a9055e, type: 2}
   m_IsPrefabAsset: 0

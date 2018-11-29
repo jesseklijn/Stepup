@@ -441,3 +441,27 @@ cv,lcv,rcv,SceneName,StepsAmount
 cv,lcv,rcv,SceneName,StepsAmount
 0.777307654732197,0.74360951675076,0.811005792713633,SkyStage,136
 
+cv,lcv,rcv,SceneName,StepsAmount
+0.854258491839132,0.860217497833472,0.848299485844792,SwitchTesting,117
+
+cv,lcv,rcv,SceneName,StepsAmount
+0.781873422220172,0.79365626688833,0.770090577552014,SwitchTesting,111
+
+cv,lcv,rcv,SceneName,StepsAmount
+0.769385448585075,0.782767603196071,0.756003293974079,SwitchTesting,118
+
+cv,lcv,rcv,SceneName,StepsAmount
+0.919016566647033,0.908218692166594,0.929814441127471,SwitchTesting,106
+
+cv,lcv,rcv,SceneName,StepsAmount
+0,0,0,SwitchTesting,0
+
+cv,lcv,rcv,SceneName,StepsAmount
+0.880949304579538,0.8777662210042,0.884132388154877,CaveStage,146
+
+cv,lcv,rcv,SceneName,StepsAmount
+0.793811893343408,0.776009555465713,0.811614231221102,SwitchTesting,132
+
+cv,lcv,rcv,SceneName,StepsAmount
+0.607666147067857,0.597959420825265,0.61737287331045,RiverStage,146
+

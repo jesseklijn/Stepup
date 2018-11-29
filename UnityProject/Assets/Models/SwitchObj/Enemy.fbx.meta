@@ -1,0 +1,266 @@
+fileFormatVersion: 2
+guid: 3c5538f5b2e1f2940a213a143c240377
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Base
+    100002: BaseController
+    100004: BaseController_Curve
+    100006: curve1
+    100008: curve2
+    100010: curve3
+    100012: //RootNode
+    100014: EnemyBody
+    100016: Eye_base
+    100018: Eye_Controller
+    100020: Eye_L
+    100022: Eye_R
+    100024: horn_L_1
+    100026: horn_L_2
+    100028: horn_L_3
+    100030: horn_R_1
+    100032: horn_R_2
+    100034: horn_R_3
+    100036: HornL_Controller
+    100038: HornL_Controller_Curve
+    100040: HornR_Controller
+    100042: HornR_Controller_Curve
+    100044: mouth
+    100046: MouthController
+    100048: MouthController_Curve
+    100050: Wing_L
+    100052: Wing_R
+    100054: WingArm_L
+    100056: WingArm_R
+    100058: WingBack_L
+    100060: WingBack_R
+    100062: WingL_A1
+    100064: WingL_A2
+    100066: WingL_B1
+    100068: WingL_B2
+    100070: WingL_C1
+    100072: WingL_C2
+    100074: WingR_A1
+    100076: WingR_A2
+    100078: WingR_B1
+    100080: WingR_B2
+    100082: WingR_B2 1
+    100084: WingR_B5
+    400000: Base
+    400002: BaseController
+    400004: BaseController_Curve
+    400006: curve1
+    400008: curve2
+    400010: curve3
+    400012: //RootNode
+    400014: EnemyBody
+    400016: Eye_base
+    400018: Eye_Controller
+    400020: Eye_L
+    400022: Eye_R
+    400024: horn_L_1
+    400026: horn_L_2
+    400028: horn_L_3
+    400030: horn_R_1
+    400032: horn_R_2
+    400034: horn_R_3
+    400036: HornL_Controller
+    400038: HornL_Controller_Curve
+    400040: HornR_Controller
+    400042: HornR_Controller_Curve
+    400044: mouth
+    400046: MouthController
+    400048: MouthController_Curve
+    400050: Wing_L
+    400052: Wing_R
+    400054: WingArm_L
+    400056: WingArm_R
+    400058: WingBack_L
+    400060: WingBack_R
+    400062: WingL_A1
+    400064: WingL_A2
+    400066: WingL_B1
+    400068: WingL_B2
+    400070: WingL_C1
+    400072: WingL_C2
+    400074: WingR_A1
+    400076: WingR_A2
+    400078: WingR_B1
+    400080: WingR_B2
+    400082: WingR_B2 1
+    400084: WingR_B5
+    2100000: EnemyBody_m
+    2100002: EnemyEffect_m
+    4300000: EnemyBody
+    7400000: Flying
+    7400002: Damage
+    7400004: Intiate
+    9500000: //RootNode
+    13700000: EnemyBody
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Flying
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 144
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Damage
+      takeName: Take 001
+      firstFrame: 145
+      lastFrame: 190
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Intiate
+      takeName: Take 001
+      firstFrame: 204
+      lastFrame: 242
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

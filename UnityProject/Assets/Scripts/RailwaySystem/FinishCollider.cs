@@ -31,8 +31,9 @@ public class FinishCollider : MonoBehaviour
         //canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
         //_aniCTR.Goal(); //Animation_Shun by tanaka
-
-        scoreLevelSystem.gameObject.SetActive(true);
-
+        if (other.gameObject.tag == "Player")
+        {
+            scoreLevelSystem.gameObject.SetActive(true);
+        }
     }
 }
