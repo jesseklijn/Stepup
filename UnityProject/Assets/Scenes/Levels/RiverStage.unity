@@ -740,6 +740,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 198486912997352722, guid: e843752250d80fa4ea57ee1d844494dc,
+        type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198486912997352722, guid: e843752250d80fa4ea57ee1d844494dc,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198486912997352722, guid: e843752250d80fa4ea57ee1d844494dc,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198486912997352722, guid: e843752250d80fa4ea57ee1d844494dc,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e843752250d80fa4ea57ee1d844494dc, type: 2}
   m_IsPrefabAsset: 0
@@ -9524,6 +9544,26 @@ Prefab:
     - target: {fileID: 4566598473442894, guid: dc1a4fd4821432c4db863e07af0d3a6c, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198596996058743258, guid: dc1a4fd4821432c4db863e07af0d3a6c,
+        type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198596996058743258, guid: dc1a4fd4821432c4db863e07af0d3a6c,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198596996058743258, guid: dc1a4fd4821432c4db863e07af0d3a6c,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198596996058743258, guid: dc1a4fd4821432c4db863e07af0d3a6c,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxGradient.key0.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc1a4fd4821432c4db863e07af0d3a6c, type: 2}
